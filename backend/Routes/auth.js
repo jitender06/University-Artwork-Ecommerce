@@ -1,6 +1,6 @@
 import express from 'express';
 import passport from 'passport';
-import { signup, login, googleCallback, facebookCallback, refreshToken, logout, registerUser } from '../Controllers/authController.js';
+import { signup, login, googleCallback, refreshToken, logout, registerUser } from '../Controllers/authController.js';
 import { authenticateToken } from '../Middleware/authMiddleware.js';
 
 const router = express.Router();
@@ -11,13 +11,19 @@ router.post('/signup', signup);
 // Local Login
 router.post('/login', login);
 router.post('/register', registerUser);
+
+
 // Google OAuth
 router.get('/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
-router.get('/google/callback', passport.authenticate('google', { session: false }), googleCallback);
 
-// Facebook OAuth
-router.get('/facebook', passport.authenticate('facebook', { scope: ['email'] }));
-router.get('/facebook/callback', passport.authenticate('facebook', { session: false }), facebookCallback);
+router.get(
+    '/google/callback',
+    passport.authenticate('google', { failureRedirect: '/login', session: false }),
+    (req, res) => {
+        const userId = req.user._id; // Example of sending user ID to the frontend
+        res.redirect(`http://localhost:5173/artwork?userId=${userId}`);
+    }
+);
 
 // Refresh Token
 router.post('/refresh-token', refreshToken);

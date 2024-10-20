@@ -8,4 +8,5 @@ const API = axios.create({
 
 export const loginWithEmail = (email, password) => API.post('/auth/login', { email, password });
 export const loginWithGoogle = () => API.get('/auth/google');
-export const loginWithFacebook = () => API.get('/auth/facebook');
+
+// export const loginWithFacebook = () => API.get('/auth/facebook');

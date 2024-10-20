@@ -3,6 +3,12 @@ import mongoose from 'mongoose';
 import bcrypt from 'bcrypt';
 
 const UserSchema = new mongoose.Schema({
+    name:{
+        type: String,
+        required: true,
+        trim: true,
+        lowercase: true
+    },
     email: {
         type: String,
         required: true,
@@ -12,15 +18,12 @@ const UserSchema = new mongoose.Schema({
     },
     password: {
         type: String,
-        required: true
+        // required: true
     },
     googleId: {
         type: String,
-        unique: true
-    },
-    facebookId: {
-        type: String,
-        unique: true
+        unique: true,
+        sparse: true
     },
     role: {
         type: String,

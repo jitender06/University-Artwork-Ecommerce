@@ -29,7 +29,7 @@ export const signup = async (req, res) => {
     }
 };
 export const registerUser = async (req, res) => {
-    const { email, password } = req.body;
+    const { name, email, password } = req.body;
 
     try {
         const existingUser = await User.findOne({ email });
@@ -38,6 +38,7 @@ export const registerUser = async (req, res) => {
         }
 
         const newUser = new User({
+            name,
             email,
             password,
         });
@@ -52,14 +53,22 @@ export const registerUser = async (req, res) => {
 
 // Local Login (email/password)
 export const login = (req, res, next) => {
-    passport.authenticate('local', { session: false }, (err, user, info) => {
+    passport.authenticate('local', { session: false }, async(err, user, info) => {
         if (err || !user) {
             return res.status(400).json({ message: info ? info.message : 'Login failed' });
         }
         const { accessToken, refreshToken } = generateTokens(user);
         user.refreshToken = refreshToken;
-        user.save();
-        res.json({ accessToken, refreshToken });
+        await user.save();
+        res.json({
+            accessToken,
+            refreshToken,
+            user: {
+                name: user.name,
+                email: user.email,
+                role: user.role
+            }
+        });
     })(req, res, next);
 };
 
@@ -69,11 +78,6 @@ export const googleCallback = (req, res) => {
     res.json({ accessToken, refreshToken });
 };
 
-// Facebook OAuth Callback
-export const facebookCallback = (req, res) => {
-    const { accessToken, refreshToken } = generateTokens(req.user);
-    res.json({ accessToken, refreshToken });
-};
 
 // Refresh Token
 export const refreshToken = async (req, res) => {
