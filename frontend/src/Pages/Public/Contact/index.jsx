@@ -8,14 +8,14 @@ export function Contact() {
         <Typography
           variant="h5"
           color="blue-gray"
-          className="mb-4 !text-base lg:!text-2xl"
+          className="mb-4 !text-base lg:!text-2xl dark:text-white"
         >
           Customer Care
         </Typography>
         <Typography
           variant="h1"
           color="blue-gray"
-          className="mb-4 !text-3xl lg:!text-5xl"
+          className="mb-4 !text-3xl lg:!text-5xl dark:text-white"
         >
           We&apos;re Here to Help
         </Typography>

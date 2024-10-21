@@ -29,58 +29,38 @@ import UserAvatar from "./UserAvatar";
 
 const navListMenuItems = [
   {
-    title: "Products",
-    description: "Find the perfect solution for your needs.",
+    title: "Paintings",
+    description: "Discover stunning paintings that elevate your space.",
     icon: SquaresPlusIcon,
+    to: "/paintings",
   },
   {
-    title: "About Us",
-    description: "Meet and learn about our dedication",
+    title: "Digital Art",
+    description: "Explore our commitment to innovative digital artwork.",
     icon: UserGroupIcon,
+    to: "/digitalart",
   },
   {
-    title: "Blog",
-    description: "Find the perfect solution for your needs.",
+    title: "Drawings",
+    description: "Find unique drawings that inspire and captivate.",
     icon: Bars4Icon,
+    to: "/drawings",
   },
   {
-    title: "Services",
-    description: "Learn how we can help you achieve your goals.",
+    title: "Sculpture",
+    description: "Learn how our sculptures can add depth to your collection.",
     icon: SunIcon,
-  },
-  {
-    title: "Support",
-    description: "Reach out to us for assistance or inquiries",
-    icon: GlobeAmericasIcon,
-  },
-  {
-    title: "Contact",
-    description: "Find the perfect solution for your needs.",
-    icon: PhoneIcon,
-  },
-  {
-    title: "News",
-    description: "Read insightful articles, tips, and expert opinions.",
-    icon: NewspaperIcon,
-  },
-  {
-    title: "Products",
-    description: "Find the perfect solution for your needs.",
-    icon: RectangleGroupIcon,
-  },
-  {
-    title: "Special Offers",
-    description: "Explore limited-time deals and bundles",
-    icon: TagIcon,
+    to: "/sculpture",
   },
 ];
+
 
 function NavListMenu() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const renderItems = navListMenuItems.map(
-    ({ icon, title, description }, key) => (
-      <a href="#" key={key}>
+    ({ icon, title, description, to }, key) => (
+      <NavLink to={to} key={key}>
         <MenuItem className="flex items-center gap-3 rounded-lg">
           <div className="flex items-center justify-center rounded-lg !bg-blue-gray-50 p-2 ">
             {" "}
@@ -104,7 +84,7 @@ function NavListMenu() {
             </Typography>
           </div>
         </MenuItem>
-      </a>
+      </NavLink>
     ),
   );
 
