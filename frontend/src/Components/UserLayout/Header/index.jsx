@@ -32,7 +32,7 @@ const navListMenuItems = [
     title: "Paintings",
     description: "Discover stunning paintings that elevate your space.",
     icon: SquaresPlusIcon,
-    to: "/paintings",
+    to: "/artwork",
   },
   {
     title: "Digital Art",
@@ -44,7 +44,7 @@ const navListMenuItems = [
     title: "Drawings",
     description: "Find unique drawings that inspire and captivate.",
     icon: Bars4Icon,
-    to: "/drawings",
+    to: "/artwork",
   },
   {
     title: "Sculpture",
@@ -104,7 +104,7 @@ function NavListMenu() {
               selected={isMenuOpen || isMobileMenuOpen}
               onClick={() => setIsMobileMenuOpen((cur) => !cur)}
             >
-              Gallery
+              Artwork
               <ChevronDownIcon
                 strokeWidth={2.5}
                 className={`hidden h-3 w-3 transition-transform lg:block ${isMenuOpen ? "rotate-180" : ""
@@ -164,7 +164,6 @@ function NavList() {
           </ListItem>
         </NavLink>
       </Typography>
-      <NavListMenu />
       <Typography
         // as="a"
         // href="#"
@@ -172,14 +171,15 @@ function NavList() {
         className="font-medium text-[#222] dark:text-white"
       >
         <NavLink
-          to={'/artwork'}
+          to={'/gallery'}
           className={({ isActive }) => (isActive ? 'active-link' : '')}
         >
           <ListItem className="flex items-center gap-2 py-2 pr-4 listitem">
-            Artwork
+            Gallery
           </ListItem>
         </NavLink>
       </Typography>
+      <NavListMenu />
       <Typography
         // as="a"
         // href="#"

@@ -6,7 +6,7 @@ const Login = React.lazy(() => import("../Pages/Public/Auth/Login"));
 const Signup = React.lazy(() => import("../Pages/Public/Auth/Signup"))
 const ArtworkStore = React.lazy(() => import("../Pages/Public/ArtworkStore/index"));
 const Contact = React.lazy(() => import('../Pages/Public/Contact/index'));
-const Paintings = React.lazy(() => import('../Pages/Public/Gallery/Paintings'));
+const Gallery = React.lazy(() => import('../Pages/Public/Gallery/Gallery'));
 const Drawing = React.lazy(() => import('../Pages/Public/Gallery/Drawing'));
 const Digitalart = React.lazy(() => import('../Pages/Public/Gallery/Digitalart'));
 const Sculpture = React.lazy(() => import('../Pages/Public/Gallery/Sculpture'));
@@ -38,8 +38,8 @@ const PublicRoute = [
         element:<Contact/>
     },
     {
-        path:"/paintings",
-        element:<Paintings/>
+        path:"/gallery",
+        element:<Gallery/>
     },
     {
         path:"/digitalart",
