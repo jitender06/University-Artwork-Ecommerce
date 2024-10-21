@@ -5,7 +5,7 @@ const AboutUs = React.lazy(() => import("../Pages/Public/AboutUs"));
 const Login = React.lazy(() => import("../Pages/Public/Auth/Login"));
 const Signup = React.lazy(() => import("../Pages/Public/Auth/Signup"))
 const ArtworkStore = React.lazy(() => import("../Pages/Public/ArtworkStore/index"))
-
+const Contact = React.lazy(() => import('../Pages/Public/Contact/index'))
 const PublicRoute = [
     {
         path:"/",
@@ -26,6 +26,10 @@ const PublicRoute = [
     {
         path:"/artwork",
         element:<ArtworkStore/>
+    },
+    {
+        path:"/contact",
+        element:<Contact/>
     }
 ];
 

@@ -200,6 +200,21 @@ function NavList() {
           </ListItem>
         </NavLink>
       </Typography>
+      <Typography
+        // as="a"
+        // href="#"
+        variant="small"
+        className="font-medium text-[#222] dark:text-white"
+      >
+        <NavLink
+          to={'/contact'}
+          className={({ isActive }) => (isActive ? 'active-link' : '')}
+        >
+          <ListItem className="flex items-center gap-2 py-2 pr-4 listitem">
+            Contact us
+          </ListItem>
+        </NavLink>
+      </Typography>
     </List>
   );
 }
@@ -208,7 +223,6 @@ export default function Header() {
   const [openNav, setOpenNav] = React.useState(false);
   const [dark, setDark] = React.useState(false);
   const user = JSON.parse(localStorage.getItem('user'));
-console.log(user.role, user, "::Fe454>")
   const darkModeHandler = () => {
     setDark(!dark);
     document.body.classList.toggle("dark");
@@ -256,13 +270,11 @@ console.log(user.role, user, "::Fe454>")
           </div>
           <div className="hidden gap-2 lg:flex items-center">
             {
-               user && user?.role == "user" ?<>
-                {/* Cart */}
-                  <Cart/>
-                 {/* Search */}
-                <UserAvatar/>
-               </>
-               :<>
+              user && user?.role == "user" ? <>
+                <Cart />
+                <UserAvatar />
+              </>
+                : <>
                   <NavLink to={"/login"}>
                     <Button variant="text" size="sm" color="blue-gray">
                       Log In
@@ -273,7 +285,7 @@ console.log(user.role, user, "::Fe454>")
                       Register
                     </Button>
                   </NavLink>
-               </>
+                </>
             }
             <button onClick={() => darkModeHandler()}>
               {
@@ -301,31 +313,12 @@ console.log(user.role, user, "::Fe454>")
         <Collapse open={openNav}>
           <NavList />
           <div className="flex w-full flex-nowrap items-center gap-2 lg:hidden">
-          {
-               user && user?.role == "user" ?<>
-                {/* Cart */}
-                <div className="flow-root">
-                  <a href="#" className="group -m-2 flex items-center p-2">
-                    <ShoppingBagIcon
-                      aria-hidden="true"
-                      className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
-                    />
-                    <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">0</span>
-                    <span className="sr-only">items in cart, view bag</span>
-                  </a>
-                </div>
-
-                 {/* Search */}
-                 <div className="flex">
-                  <a href="#" className="p-2 text-gray-400 hover:text-gray-500">
-                    <span className="sr-only">Search</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-8">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                    </svg>
-                  </a>
-                </div>
-               </>
-               :<>
+            {
+              user && user?.role == "user" ? <>
+                <Cart />
+                <UserAvatar />
+              </>
+                : <>
                   <NavLink to={"/login"}>
                     <Button variant="text" size="sm" color="blue-gray">
                       Log In
@@ -336,7 +329,7 @@ console.log(user.role, user, "::Fe454>")
                       Register
                     </Button>
                   </NavLink>
-               </>
+                </>
             }
             <button onClick={() => darkModeHandler()}>
               {
