@@ -11,6 +11,7 @@ dotenv.config();
 const app = express();
 // CORS Configuration
 
+connectDB();
 const corsOptions = {
     origin: 'http://localhost:5173', // Replace with your frontend URL
     methods: ['GET', 'POST', 'PUT', 'DELETE'], // Adjust methods as needed
@@ -20,7 +21,6 @@ const corsOptions = {
 app.use(cors(corsOptions)); // Use CORS with options
 
 app.use(express.json());
-connectDB();
 
 app.use(passport.initialize());
 
