@@ -11,6 +11,8 @@ const Drawing = React.lazy(() => import('../Pages/Public/Gallery/Drawing'));
 const Digitalart = React.lazy(() => import('../Pages/Public/Gallery/Digitalart'));
 const Sculpture = React.lazy(() => import('../Pages/Public/Gallery/Sculpture'));
 const Dashboard = React.lazy(() => import('../Pages/Admin/Dashboard/index'))
+const Users = React.lazy(() => import("../Pages/Admin/Users"));
+const ProductsManage = React.lazy(() => import("../Pages/Admin/ProductsManage/index"))
 
 const PublicRoute = [
     {
@@ -60,6 +62,14 @@ const AdminRoute = [
     {
         path:"/admin/dashboard",
         element:<Dashboard/>
+    },
+    {
+        path:"/admin/user",
+        element:<Users/>
+    },
+    {
+        path:"/admin/products",
+        element:<ProductsManage/>
     },
 ];
 

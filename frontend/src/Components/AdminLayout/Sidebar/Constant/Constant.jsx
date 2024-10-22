@@ -19,17 +19,17 @@ const Menus = {
             isSubmenu: false,
         },
         {
-            label: 'Job',
+            label: 'Products',
             icon: <WorkIcon />,
-            to:'/admin/job',
+            to:'/admin/products',
             isSubmenu: false,
         },
-        {
-            label: 'Category',
-            icon: <CategoryIcon />,
-            to:'/admin/category',
-            isSubmenu: false,
-        },
+        // {
+        //     label: 'Category',
+        //     icon: <CategoryIcon />,
+        //     to:'/admin/category',
+        //     isSubmenu: false,
+        // },
     ],
     recruiter:[
         {
