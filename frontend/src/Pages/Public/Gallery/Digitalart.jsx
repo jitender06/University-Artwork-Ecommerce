@@ -11,11 +11,11 @@ export default function Digitalart() {
   return (
     <>
      <div className="h-full relative flex flex-wrap py-9 px-4 md:px-14 gap-10 mx-auto items-center justify-center">
-        {
+        {/* {
             paintings?.map((item) => (
                 <FramePaintings source={item?.source}/>
             ))
-        }
+        } */}
      </div>
     </>
   )

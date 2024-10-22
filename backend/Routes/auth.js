@@ -1,12 +1,10 @@
 import express from 'express';
 import passport from 'passport';
-import { signup, login, googleCallback, refreshToken, logout, registerUser } from '../Controllers/authController.js';
+import { login, refreshToken, logout, registerUser } from '../Controllers/authController.js';
 import { authenticateToken } from '../Middleware/authMiddleware.js';
+import { generateTokens } from '../Util/tokenUtils.js';
 
 const router = express.Router();
-
-// Local Signup
-router.post('/signup', signup);
 
 // Local Login
 router.post('/login', login);
@@ -19,9 +17,26 @@ router.get('/google', passport.authenticate('google', { scope: ['profile', 'emai
 router.get(
     '/google/callback',
     passport.authenticate('google', { failureRedirect: '/login', session: false }),
-    (req, res) => {
+    async (req, res) => {
         const userId = req.user._id; // Example of sending user ID to the frontend
-        res.redirect(`http://localhost:5173/artwork?userId=${userId}`);
+        const { accessToken, refreshToken } = generateTokens(req.user);
+        // Store the refresh token in the user record
+        req.user.refreshToken = refreshToken;
+        await req.user.save();  // Save the user with the refresh token
+        // Construct the data object to store in localStorage (similar to local strategy)
+        const data = {
+            accessToken,
+            refreshToken,
+            user: {
+                name: req.user.name,
+                email: req.user.email,
+                role: req.user.role // You can customize this as needed
+            }
+        };
+
+        // Redirect to the frontend with data as query params (can be handled by frontend)
+        const redirectUrl = `http://localhost:5173/artwork?data=${encodeURIComponent(JSON.stringify(data))}`;
+        res.redirect(redirectUrl);
     }
 );
 

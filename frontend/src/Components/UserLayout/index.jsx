@@ -1,7 +1,8 @@
 import { Box } from '@mui/material'
-import React from 'react'
+import React, { useEffect } from 'react'
 import Header from './Header'
 import Footer from './Footer/Footer'
+import { useNavigate } from 'react-router-dom';
 
 function UserLayout({children}) {
   return (

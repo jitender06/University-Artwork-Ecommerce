@@ -33,7 +33,6 @@ const UserSchema = new mongoose.Schema({
     refreshToken: {
         type: String,
     },
-    // Add other fields as necessary (e.g., name, profile picture, etc.)
 });
 
 // Hash password before saving

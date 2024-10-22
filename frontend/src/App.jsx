@@ -1,16 +1,19 @@
-import React, { Suspense } from 'react'
+import React, { Suspense, useEffect, useState } from 'react'
 import UserLayout from './Components/UserLayout'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { PublicRoute } from './Route'
+import { AdminRoute, PublicRoute } from './Route'
 import SuspenceLoader from './Components/Common/SuspenceLoader'
+import {AdminMiddleware} from './Route/Middlewares'
+import NotFoundPage from './Components/Common/NotFoundPage'
+import AuthenticatedLayout from './Components/AdminLayout'
 
 function App() {
   return (
     <BrowserRouter>
-      <Suspense fallback={<SuspenceLoader/>}>
+      <Suspense fallback={<SuspenceLoader />}>
         <Routes>
           {
-            PublicRoute.map((item, index) => (
+            PublicRoute?.map((item, index) => (
               <Route key={index}
                 path={item.path}
                 element={
@@ -21,6 +24,21 @@ function App() {
               />
             ))
           }
+          {
+            AdminRoute?.map((item, index) => (
+              <Route key={index}
+                path={item.path}
+                element={
+                  <AdminMiddleware>
+                    <AuthenticatedLayout>
+                      {item.element}
+                    </AuthenticatedLayout>
+                  </AdminMiddleware>
+                }
+              />
+            ))
+          }
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
     </BrowserRouter>

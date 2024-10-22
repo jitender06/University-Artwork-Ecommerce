@@ -14,10 +14,10 @@ export default function HeroBody() {
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur ut ab temporibus? Quidem eveniet praesentium enim dolores magni dolore obcaecati, itaque iure est, modi nam eaque repellat a deserunt. Quam perspiciatis saepe officia repellendus quibusdam quod eius, nemo quos. Blanditiis earum sed consectetur rerum odio beatae aut iusto, magni voluptates!
                 </p>
                 <div className="flex gap-x-5 flex-col gap-y-2.5 lg:flex-row">
-                    <Button variant="outlined" size="sm" color="blue-gray">
+                    <Button variant="outlined" size="sm" color="blue-gray" style={{width:"auto"}}>
                         Get Started
                     </Button>
-                    <Button variant="gradient" size="sm">
+                    <Button variant="gradient" size="sm" style={{width:"auto"}}>
                         Learn More
                     </Button>
                 </div>

@@ -9,12 +9,12 @@ import ArtistsShow from './Components/ArtistsShow'
 export default function Hero() {
   return (
     <>
-      <HeroCarousel/>
-      <HeroBody/>
-      <ArtistsShow/>
-      <ProductFeature/>
-      <Card3d/>
-      <PromoSection/>
+      <HeroCarousel />
+      <HeroBody />
+      <ArtistsShow />
+      <ProductFeature />
+      <Card3d />
+      <PromoSection />
     </>
   )
 }

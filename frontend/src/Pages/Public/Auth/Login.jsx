@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { loginWithEmail, loginWithGoogle } from '../../../api.js'; // Update the path based on your structure
+import { loginWithEmail, loginWithGoogle } from '../../../api.js'; 
 
 export default function Login() {
-    console.log(loginWithGoogle,"::sdsdsd786")
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
@@ -12,9 +11,10 @@ export default function Login() {
         e.preventDefault();
         try {
             const res = await loginWithEmail(email, password);
-            console.log(res.data,"::data>>5435")
-            localStorage.setItem('user', JSON.stringify(res.data.user));
-            if (res.data) {
+            localStorage.setItem('data', JSON.stringify(res.data));
+            if (res.data && res?.data?.user?.role === "admin") {
+                navigate('/admin/dashboard'); 
+            }else{
                 navigate('/artwork'); 
             }
         } catch (err) {
@@ -25,10 +25,6 @@ export default function Login() {
     const handleGoogleLogin = async () => {
         window.location.href = 'http://localhost:8000/auth/google';
     };
-
-    // const handleFacebookLogin = async () => {
-    //     window.location.href = 'http://localhost:8000/auth/facebook';
-    // };
 
     return (
         <div className="mx-auto h-screen flex items-center justify-center max-w-lg overflow-hidden rounded-lg bg-white lg:max-w-5xl lg:space-x-8 dark:bg-gray-900">
@@ -41,22 +37,11 @@ export default function Login() {
                     We are <span className="text-primary">Happy</span> to see you back
                 </p>
                 <div className="mt-4 space-y-3 sm:flex sm:items-center sm:space-x-4 sm:space-y-0 justify-center">
-                    <button onClick={handleGoogleLogin} className="px-4 py-2 border flex gap-2 border-slate-200 dark:border-slate-700 rounded-lg text-slate-700 dark:text-slate-200 hover:border-slate-400 dark:hover:border-slate-500 hover:text-slate-900 dark:hover:text-slate-300 hover:shadow transition duration-150">
+                    <button onClick={handleGoogleLogin} className="px-4 py-2 border flex gap-2 border-slate-200 dark:border-slate-700 rounded-lg text-slate-700 dark:text-slate-200 hover:border-slate-400 dark:hover:border-slate-500 hover:text-slate-900 dark:hover:text-slate-300 hover:shadow transition duration-150" style={{width:"auto"}}>
                         <img className="w-6 h-6" src="https://www.svgrepo.com/show/475656/google-color.svg" loading="lazy" alt="google logo" />
                         <span>Login with Google</span>
                     </button>
                 </div>
-                {/* <div className="mt-4 space-y-3 sm:flex sm:items-center sm:space-x-4 sm:space-y-0 justify-center">
-                    <button onClick={handleGoogleLogin} className="flex items-center space-x-2">
-                        <svg className="h-5 w-5" viewBox="0 0 438.549 438.549"><g><path d="M409.132,114.573..." /></g></svg>
-                        <span className="text-sm text-gray-800 dark:text-gray-200">Login with Google</span>
-                    </button>
-
-                    <button onClick={handleFacebookLogin} className="flex items-center space-x-2">
-                        <svg className="h-5 w-5 text-blue-500" viewBox="0 0 612 612"><g><path d="M612,116.258..." /></g></svg>
-                        <span className="text-sm text-gray-800 dark:text-gray-200">Login with Facebook</span>
-                    </button>
-                </div> */}
 
                 <div className="mt-4 flex items-center justify-between">
                     <span className="w-1/5 border-b lg:w-1/4 dark:border-gray-600"></span>
