@@ -1,4 +1,6 @@
+import { NavLink } from "react-router-dom";
 import MovingCard from "./MovingCard";
+import { Button } from "@material-tailwind/react";
 
 export default function PromoSection() {
   // for 1
@@ -71,13 +73,11 @@ export default function PromoSection() {
                   </div>
                 </div>
               </div>
-
-              <a
-                href="#"
-                className="inline-block rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-center font-medium text-white hover:bg-indigo-700"
-              >
-                Shop Collection
-              </a>
+              <NavLink to={'/artwork'}>
+                <Button variant="gradient" size="md" style={{ width: "auto" }}>
+                  Shop Collection
+                </Button>
+              </NavLink>
             </div>
           </div>
         </div>

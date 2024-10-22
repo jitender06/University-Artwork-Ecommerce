@@ -10,7 +10,7 @@ const Gallery = React.lazy(() => import('../Pages/Public/Gallery/Gallery'));
 const Drawing = React.lazy(() => import('../Pages/Public/Gallery/Drawing'));
 const Digitalart = React.lazy(() => import('../Pages/Public/Gallery/Digitalart'));
 const Sculpture = React.lazy(() => import('../Pages/Public/Gallery/Sculpture'));
-
+const Dashboard = React.lazy(() => import('../Pages/Admin/Dashboard/index'))
 
 const PublicRoute = [
     {
@@ -56,4 +56,11 @@ const PublicRoute = [
 ];
 
 
-export {PublicRoute}
+const AdminRoute = [
+    {
+        path:"/admin/dashboard",
+        element:<Dashboard/>
+    },
+];
+
+export {PublicRoute, AdminRoute}

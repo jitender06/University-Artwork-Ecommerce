@@ -73,60 +73,6 @@ passport.use(
 
 
 
-// passport.use(new GoogleStrategy({
-//     clientID: process.env.GOOGLE_CLIENT_ID,
-//     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-//     callbackURL: 'http://localhost:8000/auth/google/callback',
-// },
-// function (accessToken, refreshToken, profile, done) {
-//     User.findOne({ googleId: profile.id }, function (err, user) {
-//         if (err) return done(err);
-//         if (!user) {
-//             // Create a new user if one doesn't exist
-//             const newUser = new User({
-//                 googleId: profile.id,
-//                 email: profile.emails[0].value,
-//                 name: profile.displayName,
-//                 // facebookId will be null
-//             });
-//             newUser.save((err) => {
-//                 if (err) return done(err);
-//                 return done(null, newUser);
-//             });
-//         } else {
-//             // User found
-//             return done(null, user);
-//         }
-//     });
-// }));
-
-// Facebook OAuth Strategy
-// passport.use(
-//     new FacebookStrategy(
-//         {
-//             clientID: 'FACEBOOK_CLIENT_ID',
-//             clientSecret: 'FACEBOOK_CLIENT_SECRET',
-//             callbackURL: '/auth/facebook/callback',
-//             profileFields: ['id', 'displayName', 'email'],
-//         },
-//         async (accessToken, refreshToken, profile, done) => {
-//             try {
-//                 let user = await User.findOne({ facebookId: profile.id });
-
-//                 if (!user) {
-//                     user = await User.create({
-//                         name: profile.displayName,
-//                         email: profile.emails[0].value,
-//                         facebookId: profile.id,
-//                     });
-//                 }
-//                 return done(null, user);
-//             } catch (error) {
-//                 return done(error);
-//             }
-//         }
-//     )
-// );
 
 // Serializing and Deserializing User
 passport.serializeUser((user, done) => {

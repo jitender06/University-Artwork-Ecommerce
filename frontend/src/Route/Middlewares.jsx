@@ -3,8 +3,9 @@ import { useNavigate } from 'react-router';
 import { Navigate } from 'react-router';
 
 const RoleMiddleware = (props, roleType) => {
-    const token = localStorage.getItem('token');
-    const user = JSON.parse(localStorage.getItem('user'));
+    const data = JSON.parse(localStorage.getItem('data'));
+    const user = data?.user
+    const token = data?.refreshToken;
     if (token && user.role == roleType) {
         return (
             <React.Fragment>
@@ -20,10 +21,5 @@ const RoleMiddleware = (props, roleType) => {
     }
 }
 const AdminMiddleware = (props) => RoleMiddleware(props, 'admin');
-const RecruiterMiddleware = (props) => RoleMiddleware(props, 'recruiter');
-const ClientMiddleware = (props) => RoleMiddleware(props, 'client');
-export {
-    AdminMiddleware,
-    RecruiterMiddleware,
-    ClientMiddleware
-}
+
+export { AdminMiddleware }

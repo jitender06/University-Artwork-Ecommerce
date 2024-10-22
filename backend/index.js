@@ -5,6 +5,7 @@ import passport from 'passport';
 import authRoutes from './Routes/auth.js';
 import './Config/passport.js'
 import dotenv from 'dotenv';
+import mongoose from 'mongoose';
 
 dotenv.config();
 
@@ -17,6 +18,7 @@ const corsOptions = {
     methods: ['GET', 'POST', 'PUT', 'DELETE'], // Adjust methods as needed
     credentials: true, // If you need to allow cookies
 };
+
 
 app.use(cors(corsOptions)); // Use CORS with options
 

@@ -1,17 +1,5 @@
-import React from "react";
-import {
-  Navbar,
-  Collapse,
-  Typography,
-  Button,
-  IconButton,
-  List,
-  ListItem,
-  Menu,
-  MenuHandler,
-  MenuList,
-  MenuItem,
-} from "@material-tailwind/react";
+import React, { useEffect, useState } from "react";
+import { Navbar, Collapse, Typography, Button, IconButton, List, ListItem, Menu, MenuHandler, MenuList, MenuItem } from "@material-tailwind/react";
 import {
   ChevronDownIcon,
   Bars3Icon,
@@ -134,67 +122,59 @@ function NavListMenu() {
 function NavList() {
   return (
     <List className="mt-4 mb-6 p-0 lg:mt-0 lg:mb-0 lg:flex-row lg:p-1">
-      <Typography
-        // as="a"
-        // href="#"
-        variant="small"
-        className="font-medium text-[#222] dark:text-white"
+      <NavLink
+        to={'/'}
+        className={({ isActive }) => (isActive ? 'active-link' : '')}
       >
-        <NavLink
-          to={'/'}
-          className={({ isActive }) => (isActive ? 'active-link' : '')}
+        <Typography
+          variant="small"
+          className="font-medium text-[#222] dark:text-white"
         >
           <ListItem className="flex items-center gap-2 py-2 pr-4 listitem">
             Home
           </ListItem>
-        </NavLink>
-      </Typography>
-      <Typography
-        // as="a"
-        // href="#"
-        variant="small"
-        className="font-medium text-[#222] dark:text-white"
+        </Typography>
+      </NavLink>
+      <NavLink
+        to={'/about'}
+        className={({ isActive }) => (isActive ? 'active-link' : '')}
       >
-        <NavLink
-          to={'/about'}
-          className={({ isActive }) => (isActive ? 'active-link' : '')}
+        <Typography
+          variant="small"
+          className="font-medium text-[#222] dark:text-white"
         >
           <ListItem className="flex items-center gap-2 py-2 pr-4 listitem">
             About
           </ListItem>
-        </NavLink>
-      </Typography>
-      <Typography
-        // as="a"
-        // href="#"
-        variant="small"
-        className="font-medium text-[#222] dark:text-white"
+        </Typography>
+      </NavLink>
+      <NavLink
+        to={'/gallery'}
+        className={({ isActive }) => (isActive ? 'active-link' : '')}
       >
-        <NavLink
-          to={'/gallery'}
-          className={({ isActive }) => (isActive ? 'active-link' : '')}
+        <Typography
+          variant="small"
+          className="font-medium text-[#222] dark:text-white"
         >
           <ListItem className="flex items-center gap-2 py-2 pr-4 listitem">
             Gallery
           </ListItem>
-        </NavLink>
-      </Typography>
+        </Typography>
+      </NavLink>
       <NavListMenu />
-      <Typography
-        // as="a"
-        // href="#"
-        variant="small"
-        className="font-medium text-[#222] dark:text-white"
+      <NavLink
+        to={'/contact'}
+        className={({ isActive }) => (isActive ? 'active-link' : '')}
       >
-        <NavLink
-          to={'/contact'}
-          className={({ isActive }) => (isActive ? 'active-link' : '')}
+        <Typography
+          variant="small"
+          className="font-medium text-[#222] dark:text-white"
         >
           <ListItem className="flex items-center gap-2 py-2 pr-4 listitem">
             Contact us
           </ListItem>
-        </NavLink>
-      </Typography>
+        </Typography>
+      </NavLink>
     </List>
   );
 }
@@ -202,11 +182,23 @@ function NavList() {
 export default function Header() {
   const [openNav, setOpenNav] = React.useState(false);
   const [dark, setDark] = React.useState(false);
-  const user = JSON.parse(localStorage.getItem('user'));
+  const [user, setUser] = useState(null);
+
+  const CheckData = JSON.parse(localStorage.getItem('data'));
+
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem('data'));
+    const userData = data?.user;
+    setUser(userData);  
+  }, [CheckData]);
+
+
   const darkModeHandler = () => {
     setDark(!dark);
     document.body.classList.toggle("dark");
   }
+  
+  
   React.useEffect(() => {
     window.addEventListener(
       "resize",
@@ -250,18 +242,20 @@ export default function Header() {
           </div>
           <div className="hidden gap-2 lg:flex items-center">
             {
-              user && user?.role == "user" ? <>
+              user && user?.role ? <>
                 <Cart />
                 <UserAvatar />
               </>
                 : <>
                   <NavLink to={"/login"}>
-                    <Button variant="text" size="sm" color="blue-gray">
+                    {/* <button type="button" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">Log In</button> */}
+                    <Button variant="text" size="sm" color="blue-gray" style={{ width: "auto" }}>
                       Log In
                     </Button>
                   </NavLink>
                   <NavLink to={"/register"}>
-                    <Button variant="gradient" size="sm">
+                    {/* <button type="button" class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Register</button> */}
+                    <Button variant="gradient" size="sm" style={{ width: "auto" }}>
                       Register
                     </Button>
                   </NavLink>
@@ -294,18 +288,18 @@ export default function Header() {
           <NavList />
           <div className="flex w-full flex-nowrap items-center gap-2 lg:hidden">
             {
-              user && user?.role == "user" ? <>
+              user && user?.role ? <>
                 <Cart />
                 <UserAvatar />
               </>
                 : <>
                   <NavLink to={"/login"}>
-                    <Button variant="text" size="sm" color="blue-gray">
+                    <Button variant="text" size="sm" color="blue-gray" style={{ width: "auto" }}>
                       Log In
                     </Button>
                   </NavLink>
                   <NavLink to={"/register"}>
-                    <Button variant="gradient" size="sm">
+                    <Button variant="gradient" size="sm" style={{ width: "auto" }}>
                       Register
                     </Button>
                   </NavLink>

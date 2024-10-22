@@ -1,0 +1,16 @@
+.card-border {
+    border-width: 1px;
+    border-color: #e5e5e5;
+}
+.card {
+    border-radius: 1rem;
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255 / 1);
+}
+
+.righth2 {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+    font-weight: 700;
+    color: #171717;
+}
