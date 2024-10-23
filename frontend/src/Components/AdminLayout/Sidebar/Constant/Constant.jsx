@@ -19,17 +19,11 @@ const Menus = {
             isSubmenu: false,
         },
         {
-            label: 'Job',
+            label: 'Products',
             icon: <WorkIcon />,
-            to:'/admin/job',
+            to:'/admin/products',
             isSubmenu: false,
-        },
-        {
-            label: 'Category',
-            icon: <CategoryIcon />,
-            to:'/admin/category',
-            isSubmenu: false,
-        },
+        }
     ],
     recruiter:[
         {
@@ -44,48 +38,6 @@ const Menus = {
             to:'/recruiter/job',
             isSubmenu: false,
         },
-    // {
-    //     label: 'Estimate',
-    //     icon: <MailIcon sx={{ color: ThemeColor.secondary }} />,
-    //     to:'/estimate',
-    //     isSubmenu: false,
-    // },
-    // {
-    //     label: 'Mail',
-    //     icon: <InboxIcon sx={{ color: ThemeColor.secondary }} />,
-    //     to:'/send',
-    //     isSubmenu: true,
-    //     subMenu:[
-    //         {
-    //             label: 'Send',
-    //             icon: <MailIcon sx={{ color: ThemeColor.secondary }} />,
-    //             to:'/send',
-    //         },
-    //         {
-    //             label: 'Received',
-    //             icon: <MailIcon sx={{ color: ThemeColor.secondary }} />,
-    //             to:'/received',
-    //         },
-    //     ],
-    // },
-    // {
-    //     label: 'Mail',
-    //     icon: <InboxIcon sx={{ color: ThemeColor.secondary }} />,
-    //     to:'/send',
-    //     isSubmenu: true,
-    //     subMenu:[
-    //         {
-    //             label: 'Send',
-    //             icon: <MailIcon sx={{ color: ThemeColor.secondary }} />,
-    //             to:'/send',
-    //         },
-    //         {
-    //             label: 'Received',
-    //             icon: <MailIcon sx={{ color: ThemeColor.secondary }} />,
-    //             to:'/received',
-    //         },
-    //     ],
-    // },
     ]
 }
 
