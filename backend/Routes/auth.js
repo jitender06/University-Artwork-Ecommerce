@@ -1,7 +1,7 @@
 import express from 'express';
 import passport from 'passport';
 import { login, refreshToken, logout, registerUser } from '../Controllers/authController.js';
-import { authenticateToken } from '../Middleware/authMiddleware.js';
+// import { authenticateToken } from '../Middleware/authMiddleware.js';
 import { generateTokens } from '../Util/tokenUtils.js';
 
 const router = express.Router();
@@ -47,8 +47,8 @@ router.post('/refresh-token', refreshToken);
 router.post('/logout', logout);
 
 // Example of a protected route
-router.get('/protected', authenticateToken, (req, res) => {
-    res.json({ message: 'This is a protected route for authorized users only' });
-});
+// router.get('/protected', authenticateToken, (req, res) => {
+//     res.json({ message: 'This is a protected route for authorized users only' });
+// });
 
 export default router;

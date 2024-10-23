@@ -1,10 +1,29 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Charts from './Charts'
 import { Paper } from '@mui/material'
 import './style.css'
 import Tables from './Tables/Tables'
+import axios from 'axios'
+import { Avatar } from '@material-tailwind/react'
+import { NavLink } from 'react-router-dom';
 
 export default function Dashboard() {
+  const [TABLE_ROWS, setTABLE_ROWS] = useState()
+  const fetchProductData = async () => {
+    try {
+      const { data } = await axios.get("http://localhost:8000/api/getproducts")
+      console.log(data, "dataproduct5656")
+      setTABLE_ROWS(data)
+
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  useEffect(() => {
+    fetchProductData();
+  }, [])
+
+  console.log(TABLE_ROWS, "::TABLE_ROWS")
   return (
     <>
       <div className="page-container container relative mx-auto flex h-full flex-auto flex-col px-4 py-4 sm:px-6 sm:py-6 md:px-8" >
@@ -107,81 +126,33 @@ export default function Dashboard() {
                   <div className="card-body p-[1.25rem]">
                     <div className="flex items-center justify-between">
                       <h4 className='text-2xl font-bold text-[#171717]'>Top product</h4>
-                      <button className="button ring-primary hover:border-primary hover:text-primary button-press-feedback h-10 rounded-xl border border-gray-300 bg-white px-3 py-2 text-sm text-gray-600 hover:ring-1 dark:border-gray-700 dark:bg-gray-700 dark:text-gray-100 dark:ring-white dark:hover:border-white dark:hover:bg-transparent dark:hover:text-white">View all</button>
+                      <NavLink to={"/admin/products"}>
+                        <button className="button ring-primary hover:border-primary hover:text-primary button-press-feedback h-10 rounded-xl border border-gray-300 bg-white px-3 py-2 text-sm text-gray-600 hover:ring-1 dark:border-gray-700 dark:bg-gray-700 dark:text-gray-100 dark:ring-white dark:hover:border-white dark:hover:bg-transparent dark:hover:text-white">View all</button>
+                      </NavLink>
                     </div>
                     <div className="mt-5 text-black">
-                      <div className="mb-2 flex items-center justify-between py-2 dark:border-gray-600">
-                        <div className="flex items-center gap-2">
-                          <span className="avatar avatar-round bg-white" style={{ width: "50px", height: "50px", minWidth: "50px", lineHeight: "50px", fontSize: "12px" }}><img className="avatar-img avatar-round" src="https://ecme-react.themenate.net/img/products/product-7.jpg" loading="lazy" /></span>
-                          <div>
-                            <div className="heading-text font-bold">Maneki Neko Poster</div>
-                            <div>Sold: 1249</div>
+                      {TABLE_ROWS?.length > 0 ?
+                        TABLE_ROWS?.slice(0, 6).map(({ title, description, status, price, category, createdAt, updatedAt, productImage, _id }, index) => (
+                          <div key={_id} className="mb-2 flex items-center justify-between py-2 dark:border-gray-600">
+                            <div className="flex items-center gap-2">
+                              <Avatar src={`http://localhost:8000/${productImage?.path}`} alt={title} size="sm" />
+                              <div>
+                                <div className="heading-text font-bold">{title?.charAt(0).toUpperCase() + title?.slice(1)}</div>
+                                <div className='max-w-16 text-sm'>
+                                  {description?.charAt(0).toUpperCase() + description?.slice(0, 22) + "..."}
+                                </div>
+                              </div>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <span className="text-success bg-success-subtle flex items-center rounded-lg px-2 py-0.5 font-bold"><span>{category?.charAt(0).toUpperCase() + category?.slice(1)}</span></span>
+                            </div>
                           </div>
+                        ))
+                        :
+                        <div className="flex item-center justify-center w-72 mt-10 flex-col mx-auto text-center">
+                          <img src="https://img.freepik.com/free-vector/hand-drawn-no-data-illustration_23-2150544961.jpg" alt="no-data-found" />
                         </div>
-                        <div className="flex items-center gap-2">
-                          <span className="text-success bg-success-subtle flex items-center rounded-lg px-2 py-0.5 font-bold"><span>+</span><span>15.2%</span></span>
-                        </div>
-                      </div>
-                      <div className="mb-2 flex items-center justify-between py-2 dark:border-gray-600">
-                        <div className="flex items-center gap-2">
-                          <span className="avatar avatar-round bg-white" style={{ width: "50px", height: "50px", minWidth: "50px", lineHeight: "50px", fontSize: "12px" }}><img className="avatar-img avatar-round" src="https://ecme-react.themenate.net/img/products/product-7.jpg" loading="lazy" /></span>
-                          <div>
-                            <div className="heading-text font-bold">Echoes Necklace</div>
-                            <div>Sold: 1145</div>
-                          </div>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <span className="text-success bg-success-subtle flex items-center rounded-lg px-2 py-0.5 font-bold"><span>+</span><span>13.9%</span></span>
-                        </div>
-                      </div>
-                      <div className="mb-2 flex items-center justify-between py-2 dark:border-gray-600">
-                        <div className="flex items-center gap-2">
-                          <span className="avatar avatar-round bg-white" style={{ width: "50px", height: "50px", minWidth: "50px", lineHeight: "50px", fontSize: "12px" }}><img className="avatar-img avatar-round" src="https://ecme-react.themenate.net/img/products/product-7.jpg" loading="lazy" /></span>
-                          <div>
-                            <div className="heading-text font-bold">Spiky Ring</div>
-                            <div>Sold: 1073</div>
-                          </div>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <span className="text-success bg-success-subtle flex items-center rounded-lg px-2 py-0.5 font-bold"><span>+</span><span>9.5%</span></span>
-                        </div>
-                      </div>
-                      <div className="mb-2 flex items-center justify-between py-2 dark:border-gray-600">
-                        <div className="flex items-center gap-2">
-                          <span className="avatar avatar-round bg-white" style={{ width: "50px", height: "50px", minWidth: "50px", lineHeight: "50px", fontSize: "12px" }}><img className="avatar-img avatar-round" src="https://ecme-react.themenate.net/img/products/product-7.jpg" loading="lazy" /></span>
-                          <div>
-                            <div className="heading-text font-bold">Pastel Petals Poster</div>
-                            <div>Sold: 1022</div>
-                          </div>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <span className="text-success bg-success-subtle flex items-center rounded-lg px-2 py-0.5 font-bold"><span>+</span><span>2.3%</span></span>
-                        </div>
-                      </div>
-                      <div className="mb-2 flex items-center justify-between py-2 dark:border-gray-600">
-                        <div className="flex items-center gap-2">
-                          <span className="avatar avatar-round bg-white" style={{ width: "50px", height: "50px", minWidth: "50px", lineHeight: "50px", fontSize: "12px" }}><img className="avatar-img avatar-round" src="https://ecme-react.themenate.net/img/products/product-7.jpg" loading="lazy" /></span>
-                          <div>
-                            <div className="heading-text font-bold">Il Limone</div>
-                            <div>Sold: 992</div>
-                          </div>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <span className="text-error bg-error-subtle flex items-center rounded-lg px-2 py-0.5 font-bold"><span></span><span>-0.7%</span></span>
-                        </div>
-                      </div>
-                      <div className="flex items-center justify-between py-2 dark:border-gray-600">
-                        <div className="flex items-center gap-2">
-                          <span className="avatar avatar-round bg-white" style={{ width: "50px", height: "50px", minWidth: "50px", lineHeight: "50px", fontSize: "12px" }}><img className="avatar-img avatar-round" src="https://ecme-react.themenate.net/img/products/product-7.jpg" loading="lazy" /></span>
-                          <div>
-                            <div className="heading-text font-bold">Ringed Earring</div>
-                            <div>Sold: 1201</div>
-                          </div>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <span className="text-error bg-error-subtle flex items-center rounded-lg px-2 py-0.5 font-bold"><span></span><span>-1.1%</span></span>
-                        </div>
-                      </div>
+                      }
                     </div>
                   </div>
                 </div>
@@ -195,7 +166,7 @@ export default function Dashboard() {
               <h4 className='text-2xl font-bold text-[#171717]'>Recent Orders</h4>
               <button className="button ring-primary hover:border-primary hover:text-primary button-press-feedback h-10 rounded-xl border border-gray-300 bg-white px-3 py-2 text-sm text-gray-600 hover:ring-1 dark:border-gray-700 dark:bg-gray-700 dark:text-gray-100 dark:ring-white dark:hover:border-white dark:hover:bg-transparent dark:hover:text-white">View all</button>
             </div>
-            <Tables/>
+            <Tables />
           </div>
         </div>
       </div >

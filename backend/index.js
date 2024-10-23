@@ -6,6 +6,10 @@ import authRoutes from './Routes/auth.js';
 import './Config/passport.js'
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
+import multer from 'multer';
+import path from 'path';
+import productRoutes from './Routes/productRoutes.js'
+import userRoutes from './Routes/userRoutes.js'
 
 dotenv.config();
 
@@ -25,6 +29,11 @@ app.use(cors(corsOptions)); // Use CORS with options
 app.use(express.json());
 
 app.use(passport.initialize());
+
+app.use('/uploads', express.static(path.join(path.resolve(), '/uploads')));
+app.use('/api', productRoutes);
+app.use('/user', userRoutes);
+// /api/user/getUser
 
 app.use('/auth', authRoutes);
 

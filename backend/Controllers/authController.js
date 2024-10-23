@@ -5,7 +5,7 @@ import passport from 'passport';
 
 // Generate Access and Refresh Tokens
 const generateTokens = (user) => {
-    const accessToken = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '15m' });
+    const accessToken = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '7d' });
     const refreshToken = jwt.sign({ id: user._id }, process.env.JWT_REFRESH_SECRET);
     return { accessToken, refreshToken };
 };
