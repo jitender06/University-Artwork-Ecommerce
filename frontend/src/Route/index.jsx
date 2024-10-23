@@ -13,7 +13,7 @@ const Sculpture = React.lazy(() => import('../Pages/Public/Gallery/Sculpture'));
 const Dashboard = React.lazy(() => import('../Pages/Admin/Dashboard/index'))
 const Users = React.lazy(() => import("../Pages/Admin/Users"));
 const ProductsManage = React.lazy(() => import("../Pages/Admin/ProductsManage/index"))
-
+const Painting = React.lazy(() => import('../Pages/Public/Gallery/Painting.jsx'))
 const PublicRoute = [
     {
         path:"/",
@@ -38,6 +38,10 @@ const PublicRoute = [
     {
         path:"/contact",
         element:<Contact/>
+    },
+    {
+        path:"/painting",
+        element:<Painting/>
     },
     {
         path:"/gallery",

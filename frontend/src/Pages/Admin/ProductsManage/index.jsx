@@ -1,7 +1,10 @@
 import React from 'react'
+import { ProductTable } from './Tables/ProductTable'
 
 export default function ProductsManage() {
   return (
-    <div>index</div>
+    <>
+      <ProductTable />
+    </>
   )
 }

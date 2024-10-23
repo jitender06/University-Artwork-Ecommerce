@@ -33,7 +33,7 @@ const UserSchema = new mongoose.Schema({
     refreshToken: {
         type: String,
     },
-});
+}, {timestamps: true});
 
 // Hash password before saving
 UserSchema.pre('save', async function(next) {

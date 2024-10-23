@@ -20,7 +20,7 @@ const navListMenuItems = [
     title: "Paintings",
     description: "Discover stunning paintings that elevate your space.",
     icon: SquaresPlusIcon,
-    to: "/artwork",
+    to: "/painting",
   },
   {
     title: "Digital Art",
@@ -32,7 +32,7 @@ const navListMenuItems = [
     title: "Drawings",
     description: "Find unique drawings that inspire and captivate.",
     icon: Bars4Icon,
-    to: "/artwork",
+    to: "/drawings",
   },
   {
     title: "Sculpture",
