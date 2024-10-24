@@ -14,7 +14,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
-import { Badge, Box, Grid, Menu, MenuItem, Toolbar } from '@mui/material';
+import { Avatar, Badge, Box, Grid, Menu, MenuItem, Toolbar } from '@mui/material';
 import { NavLink, useNavigate } from 'react-router-dom';
 // import { ThemeColor } from '../../../Helpers/StyleConstant';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
@@ -97,6 +97,8 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
         }),
     }),
 );
+
+let data = JSON.parse(localStorage.getItem('data'));
 
 export default function Sidebar() {
     const theme = useTheme();
@@ -209,7 +211,10 @@ export default function Sidebar() {
                                     open={Boolean(anchorEl)}
                                     onClose={handleClose}
                                 >
-                                    <MenuItem onClick={handleClose}>Profile</MenuItem>
+                                    <MenuItem onClick={handleClose}>
+                                        <Avatar sx={{marginRight:"5px"}}/> {data?.user?.name ? data.user.name.charAt(0).toUpperCase() + data.user.name.slice(1) : ''} <br /> {data?.user?.email}
+                                        <Divider />
+                                    </MenuItem>
                                     <MenuItem onClick={() => handleLogout(token)}>
                                         Logout
                                     </MenuItem>

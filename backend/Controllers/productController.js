@@ -5,7 +5,7 @@ import asyncHandler from 'express-async-handler';
 // @route   POST /api/products
 // @access  Private/Admin
 export const addProduct = async (req, res) => {
-  const { title, description, status, price } = req.body;
+  const { title, description, status, price, category } = req.body;
   console.log(req.body)
   const productImage = req.file ? req.file : null;
 
@@ -20,6 +20,7 @@ export const addProduct = async (req, res) => {
       productImage,
       status,
       price,
+      category
       // createdBy: req.user._id, // Assuming req.user contains authenticated admin's info
     });
 

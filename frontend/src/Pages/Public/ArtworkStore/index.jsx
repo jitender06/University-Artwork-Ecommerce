@@ -42,7 +42,7 @@ export default function ArtworkStore({ cate }) {
           <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
             {products?.length > 0 ?
               products?.map((product) => (
-                <ProductDetail Finalproduct={product} />
+                <ProductDetail Finalproduct={product} cate={cate}/>
               ))
               :
               <div className='col-span-full'>

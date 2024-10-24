@@ -10,6 +10,8 @@ import multer from 'multer';
 import path from 'path';
 import productRoutes from './Routes/productRoutes.js'
 import userRoutes from './Routes/userRoutes.js'
+import cartRoutes from './Routes/cartRoutes.js';
+
 
 dotenv.config();
 
@@ -33,7 +35,7 @@ app.use(passport.initialize());
 app.use('/uploads', express.static(path.join(path.resolve(), '/uploads')));
 app.use('/api', productRoutes);
 app.use('/user', userRoutes);
-// /api/user/getUser
+app.use('/api/cart', cartRoutes);
 
 app.use('/auth', authRoutes);
 

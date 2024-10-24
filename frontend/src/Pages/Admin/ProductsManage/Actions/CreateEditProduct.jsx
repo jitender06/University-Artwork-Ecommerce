@@ -27,7 +27,6 @@ export default function CreateEditProduct({ maksad, productData, fetchProductDat
         description: productData?.description || '',
         productImage: productData?.productImage || null,
     });
-console.log(formData,"::productData?.productImage")
     const handleClickOpen = () => {
         setOpen(true);
     };
@@ -45,7 +44,6 @@ console.log(formData,"::productData?.productImage")
     };
 
     const handleFileChange = (e) => {
-        console.log(e.target.files[0],"::323")
         setFormData((prevData) => ({
             ...prevData,
             productImage: e.target.files[0],
@@ -55,57 +53,64 @@ console.log(formData,"::productData?.productImage")
     let token = data?.accessToken;
     const handleSubmit = async (e) => {
         e.preventDefault();
+        // Create a new FormData object
+        const formDataToSend = new FormData();
 
-        if (maksad === 'add') {
-            try {
-                // API request to add product
-                const { data } = await axios.post('http://localhost:8000/api/products', formData, {
+        // Append all fields to FormData
+        formDataToSend.append('title', formData.title);
+        formDataToSend.append('price', formData.price);
+        formDataToSend.append('status', formData.status);
+        formDataToSend.append('category', formData.category); // category will now be correctly sent
+        formDataToSend.append('description', formData.description);
+
+        if (formData.productImage) {
+            formDataToSend.append('productImage', formData.productImage); // Append the image file
+        }
+
+        try {
+            if (maksad === 'add') {
+                // API request to add a product
+                const { data } = await axios.post('http://localhost:8000/api/products', formDataToSend, {
                     headers: {
                         'Content-Type': 'multipart/form-data',
                         'Authorization': `Bearer ${token}`,
                     },
                 });
-                console.log('Response data:', data);
-                setFormData({
-                    title: '',
-                    price: '',
-                    status: 'active',
-                    description: '',
-                    productImage: null,
-                })
-                toast.success('Product added successfully', {
-                    position: "top-right",
-                    autoClose: 3000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                });
-                await fetchProductData();
-                await handleClose();
-            } catch (error) {
-                console.log('Response data:', error.response.data.message);
-                let message = error?.response?.data?.message;
-                toast.error(message, {
-                    position: "top-right",
-                    autoClose: 3000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                });
-            }
-        } else if (maksad === 'edit') {
-            try {
-                // API request to edit product
-                await axios.put(`http://localhost:8000/api/product/${productData?._id}`, formData, {
+
+                if (data) {
+                    // Reset the form after successful submission
+                    setFormData({
+                        title: '',
+                        price: '',
+                        status: 'active',
+                        description: '',
+                        productImage: null,
+                        category: ''
+                    });
+
+                    toast.success('Product added successfully', {
+                        position: "top-right",
+                        autoClose: 3000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                    });
+
+                    // Fetch updated product data
+                    await fetchProductData();
+                    handleClose();
+                }
+            } else if (maksad === 'edit') {
+                // API request to update product
+                await axios.put(`http://localhost:8000/api/product/${productData?._id}`, formDataToSend, {
                     headers: {
                         'Content-Type': 'multipart/form-data',
-                        'Authorization': `Bearer ${token}`
+                        'Authorization': `Bearer ${token}`,
                     },
                 });
+
                 toast.success('Product updated successfully', {
                     position: "top-right",
                     autoClose: 3000,
@@ -115,23 +120,25 @@ console.log(formData,"::productData?.productImage")
                     draggable: true,
                     progress: undefined,
                 });
+
+                // Fetch updated product data
                 await fetchProductData();
-                await handleClose();
-            } catch (error) {
-                console.log('Response data:', error.response.data.message);
-                let message = error?.response?.data?.message;
-                toast.error(message, {
-                    position: "top-right",
-                    autoClose: 3000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                });
+                handleClose();
             }
+        } catch (error) {
+            const message = error?.response?.data?.message || 'An error occurred';
+            toast.error(message, {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
         }
     };
+
 
     return (
         <React.Fragment>
@@ -220,13 +227,14 @@ console.log(formData,"::productData?.productImage")
                                                 id="category"
                                                 name="category"
                                                 value={formData.category}
-                                                onChange={handleInputChange}
+                                                onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+                                                // onChange={handleInputChange}
                                                 className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                                             >
-                                                <option>painting</option>
-                                                <option>digitalart</option>
-                                                <option>drawing</option>
-                                                <option>sculpture</option>
+                                                <option value="painting">painting</option>
+                                                <option value="digitalart">digitalart</option>
+                                                <option value="drawing">drawing</option>
+                                                <option value="sculpture">sculpture</option>
                                             </select>
                                         </div>
                                     </div>

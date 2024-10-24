@@ -48,7 +48,7 @@ export const login = (req, res, next) => {
             user: {
                 name: user.name,
                 email: user.email,
-                role: user.role
+                role: user.role,
             }
         });
     })(req, res, next);
