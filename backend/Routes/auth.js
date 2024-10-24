@@ -1,11 +1,16 @@
 import express from 'express';
 import passport from 'passport';
+import jwt from 'jsonwebtoken';
 import { login, refreshToken, logout, registerUser } from '../Controllers/authController.js';
 // import { authenticateToken } from '../Middleware/authMiddleware.js';
-import { generateTokens } from '../Util/tokenUtils.js';
+// import { generateTokens } from '../Util/tokenUtils.js';
 
 const router = express.Router();
-
+const generateTokens = (user) => {
+    const accessToken = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '7d' });
+    const refreshToken = jwt.sign({ id: user._id }, process.env.JWT_REFRESH_SECRET);
+    return { accessToken, refreshToken };
+};
 // Local Login
 router.post('/login', login);
 router.post('/register', registerUser);

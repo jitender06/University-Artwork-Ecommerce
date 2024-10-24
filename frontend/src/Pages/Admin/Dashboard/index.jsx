@@ -41,7 +41,7 @@ export default function Dashboard() {
                         <div className="relative flex justify-between gap-2 md:flex-col-reverse 2xl:flex-row">
                           <div className='text-start'>
                             <div className="mb-4 text-sm font-semibold">Total profit</div>
-                            <h3 className="mb-1 text-[#171717] font-bold text-2xl"><span>$82,373.21</span></h3>
+                            <h3 className="mb-1 text-[#171717] font-bold text-2xl"><span>₹1,373</span></h3>
                             <div className="inline-flex flex-wrap items-center gap-1">
                               <span className="text-green-500 flex items-center font-bold"><span>+</span><span>3.4%</span></span><span>from last month</span>
                             </div>
@@ -59,7 +59,7 @@ export default function Dashboard() {
                         <div className="relative flex justify-between gap-2 md:flex-col-reverse 2xl:flex-row">
                           <div className='text-start'>
                             <div className="mb-4 text-sm font-semibold">Total Orders</div>
-                            <h3 className="mb-1 text-[#171717] font-bold text-2xl"><span>$82,373.21</span></h3>
+                            <h3 className="mb-1 text-[#171717] font-bold text-2xl"><span>₹2,540</span></h3>
                             <div className="inline-flex flex-wrap items-center gap-1">
                               <span className="text-green-500 flex items-center font-bold"><span>+</span><span>3.4%</span></span><span>from last month</span>
                             </div>
@@ -77,7 +77,7 @@ export default function Dashboard() {
                         <div className="relative flex justify-between gap-2 md:flex-col-reverse 2xl:flex-row">
                           <div className='text-start'>
                             <div className="mb-4 text-sm font-semibold">Impression</div>
-                            <h3 className="mb-1 text-[#171717] font-bold text-2xl"><span>$82,373.21</span></h3>
+                            <h3 className="mb-1 text-[#171717] font-bold text-2xl"><span>₹12,000</span></h3>
                             <div className="inline-flex flex-wrap items-center gap-1">
                               <span className="text-green-500 flex items-center font-bold"><span>+</span><span>3.4%</span></span><span>from last month</span>
                             </div>

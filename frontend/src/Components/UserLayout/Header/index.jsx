@@ -219,7 +219,7 @@ export default function Header() {
           <p className="text-sm leading-6 text-gray-900">
             <strong className="font-semibold">Explore Masterpieces:</strong> 200+ Unique Artworks and Paintings by Talented Artists – Now Available!
           </p>
-          <a href="#" className="flex-none rounded-full bg-gray-900 px-3.5 py-1 text-sm font-semibold text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900">Register now <span aria-hidden="true">&rarr;</span></a>
+          <NavLink to={"/register"} className="flex-none rounded-full bg-gray-900 px-3.5 py-1 text-sm font-semibold text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900">Register now <span aria-hidden="true">&rarr;</span></NavLink>
         </div>
         <div className="flex flex-1 justify-end">
         </div>

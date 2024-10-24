@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { loginWithEmail, loginWithGoogle } from '../../../api.js'; 
+import { loginWithEmail, loginWithGoogle } from '../../../api.js';
+import { toast } from 'react-toastify';
 
 export default function Login() {
     const [email, setEmail] = useState('');
@@ -12,13 +13,24 @@ export default function Login() {
         try {
             const res = await loginWithEmail(email, password);
             localStorage.setItem('data', JSON.stringify(res.data));
+
             if (res.data && res?.data?.user?.role === "admin") {
-                navigate('/admin/dashboard'); 
-            }else{
-                navigate('/artwork'); 
+                navigate('/admin/dashboard');
+            } else {
+                navigate('/artwork');
             }
-        } catch (err) {
-            console.error(err);
+
+        } catch (error) {
+            const message = error?.response?.data?.message || 'An error occurred';
+            toast.error(message, {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
         }
     };
 
@@ -37,7 +49,7 @@ export default function Login() {
                     We are <span className="text-primary">Happy</span> to see you back
                 </p>
                 <div className="mt-4 space-y-3 sm:flex sm:items-center sm:space-x-4 sm:space-y-0 justify-center">
-                    <button onClick={handleGoogleLogin} className="px-4 py-2 border flex gap-2 border-slate-200 dark:border-slate-700 rounded-lg text-slate-700 dark:text-slate-200 hover:border-slate-400 dark:hover:border-slate-500 hover:text-slate-900 dark:hover:text-slate-300 hover:shadow transition duration-150" style={{width:"auto"}}>
+                    <button onClick={handleGoogleLogin} className="px-4 py-2 border flex gap-2 border-slate-200 dark:border-slate-700 rounded-lg text-slate-700 dark:text-slate-200 hover:border-slate-400 dark:hover:border-slate-500 hover:text-slate-900 dark:hover:text-slate-300 hover:shadow transition duration-150" style={{ width: "auto" }}>
                         <img className="w-6 h-6" src="https://www.svgrepo.com/show/475656/google-color.svg" loading="lazy" alt="google logo" />
                         <span>Login with Google</span>
                     </button>

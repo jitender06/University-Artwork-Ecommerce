@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 export default function Signup() {
     const [name, setName] = useState('');
@@ -14,6 +15,15 @@ export default function Signup() {
 
         if (password !== passwordConfirmation) {
             setError("Passwords don't match");
+            toast.error("Passwords don't match", {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            })
             return;
         }
 
@@ -37,6 +47,15 @@ export default function Signup() {
                 navigate('/login'); // Redirect to login page after successful registration
             } else {
                 setError(data.message || 'Something went wrong');
+                toast.error(data.message, {
+                    position: "top-right",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                })
             }
         } catch (error) {
             setError('Server error');
@@ -51,7 +70,7 @@ export default function Signup() {
             <div className="w-full px-6 py-8 md:px-8 lg:w-1/2">
                 <h2 className="text-center text-2xl font-semibold text-gray-700 dark:text-white">Welcome</h2>
                 <p className="mt-2 text-center text-xl text-gray-600 dark:text-gray-200">Explore Masterpieces: 200+ Unique Artworks</p>
-                {error && <p className="text-red-500">{error}</p>}
+                {/* {error && <p className="text-red-500">{error}</p>} */}
                 <form onSubmit={handleSubmit}>
                     <div className="mt-4">
                         <label className="mb-2 block text-sm text-gray-600 dark:text-gray-200">Name</label>

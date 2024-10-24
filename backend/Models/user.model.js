@@ -2,6 +2,19 @@
 import mongoose from 'mongoose';
 import bcrypt from 'bcrypt';
 
+const CartItemSchema = new mongoose.Schema({
+    product: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Product', // Assuming you have a Product model
+        required: true,
+    },
+    quantity: {
+        type: Number,
+        required: true,
+        default: 1,
+    },
+});
+
 const UserSchema = new mongoose.Schema({
     name:{
         type: String,
@@ -33,6 +46,7 @@ const UserSchema = new mongoose.Schema({
     refreshToken: {
         type: String,
     },
+    cart: [CartItemSchema], // Add cart field to store cart items
 }, {timestamps: true});
 
 // Hash password before saving
