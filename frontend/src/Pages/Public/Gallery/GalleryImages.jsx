@@ -1,57 +1,79 @@
 import React from "react";
+
+import gallery1 from '../../../assets/gallery1.jpeg'
+import gallery2 from '../../../assets/gallery2.jpeg'
+import gallery3 from '../../../assets/gallery3.jpeg'
+import gallery4 from '../../../assets/gallery4.jpeg'
+import gallery5 from '../../../assets/galleryImages/gallery5.JPG'
+import gallery6 from '../../../assets/galleryImages/gallery6.JPG'
+import gallery7 from '../../../assets/galleryImages/gallery7.JPG'
+import gallery8 from '../../../assets/galleryImages/gallery8.PNG'
+import gallery9 from '../../../assets/galleryImages/gallery9.PNG'
+
+import carousel1 from '../../../assets/carousel1.PNG'
+import carousel2 from '../../../assets/carousel2.PNG'
+import carousel3 from '../../../assets/carousel3.PNG'
+import carousel4 from '../../../assets/carousel4.PNG'
+import carousel5 from '../../../assets/carousel5.PNG'
+import carousel6 from '../../../assets/carousel6.PNG'
+
 export function GalleryImages() {
   const data = [
     {
-      imgelink:
-        "https://images.unsplash.com/photo-1499696010180-025ef6e1a8f9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+      imgelink: gallery1
     },
     {
-      imgelink:
-        "https://images.unsplash.com/photo-1432462770865-65b70566d673?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+      imgelink: gallery2
     },
     {
-      imgelink:
-        "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80",
+      imgelink: gallery3
     },
     {
-      imgelink:
-        "https://images.unsplash.com/photo-1518623489648-a173ef7824f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2762&q=80",
+      imgelink: gallery4
     },
     {
-      imgelink:
-        "https://images.unsplash.com/photo-1682407186023-12c70a4a35e0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80",
+      imgelink: gallery5
     },
     {
-      imgelink:
-        "https://images.unsplash.com/photo-1499696010180-025ef6e1a8f9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+      imgelink: gallery6
     },
     {
-      imgelink:
-        "https://images.unsplash.com/photo-1432462770865-65b70566d673?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+      imgelink: gallery7
     },
     {
-      imgelink:
-        "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80",
+      imgelink: gallery8
     },
     {
-      imgelink:
-        "https://images.unsplash.com/photo-1518623489648-a173ef7824f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2762&q=80",
+      imgelink: gallery9
     },
     {
-      imgelink:
-        "https://images.unsplash.com/photo-1682407186023-12c70a4a35e0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80",
+      imgelink: carousel1
     },
+    {
+      imgelink: carousel2
+    },
+    {
+      imgelink: carousel3
+    },
+    {
+      imgelink: carousel4
+    },
+    {
+      imgelink: carousel5
+    },
+    {
+      imgelink: carousel6
+    },
+    
   ];
  
-  const [active, setActive] = React.useState(
-    "https://images.unsplash.com/photo-1499696010180-025ef6e1a8f9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
-  );
+  const [active, setActive] = React.useState(gallery1);
  
   return (
     <div className="grid gap-4">
       <div>
         <img
-          className="h-auto w-full max-w-full rounded-lg object-cover object-center md:h-[480px]"
+          className="h-auto w-full max-w-full rounded-lg object-contain object-center md:h-[480px]"
           src={active}
           alt=""
         />
@@ -62,7 +84,7 @@ export function GalleryImages() {
             <img
               onClick={() => setActive(imgelink)}
               src={imgelink}
-              className="h-20 max-w-full cursor-pointer rounded-lg object-cover object-center"
+              className="h-20 w-32 max-w-full cursor-pointer rounded-lg object-cover object-center"
               alt="gallery-image"
             />
           </div>

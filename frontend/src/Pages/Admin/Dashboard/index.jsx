@@ -160,15 +160,6 @@ export default function Dashboard() {
             </div>
           </div>
         </div>
-        <div className="card card-border" role="presentation">
-          <div className="card-body p-[1.25rem]">
-            <div className="flex items-center justify-between">
-              <h4 className='text-2xl font-bold text-[#171717]'>Recent Orders</h4>
-              <button className="button ring-primary hover:border-primary hover:text-primary button-press-feedback h-10 rounded-xl border border-gray-300 bg-white px-3 py-2 text-sm text-gray-600 hover:ring-1 dark:border-gray-700 dark:bg-gray-700 dark:text-gray-100 dark:ring-white dark:hover:border-white dark:hover:bg-transparent dark:hover:text-white">View all</button>
-            </div>
-            <Tables />
-          </div>
-        </div>
       </div >
     </>
   )

@@ -1,5 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import AnushkaVishwakarma from "../../../../assets/Artists/AnushkaVishwakarma .jpg"
+import SaurabhKumar from "../../../../assets/Artists/SaurabhKumar.jpg"
+import Aakritiverma from "../../../../assets/Artists/aakritiverma.jpg"
+import Sheetalchaya from "../../../../assets/Artists/sheetalchaya.jpg"
+import YuvrajSharma from "../../../../assets/Artists/YuvrajSharma .jpg"
+import ANNUSHRIMANDAL from "../../../../assets/Artists/ANNUSHRIMANDAL.jpg"
+import Yugsingh from "../../../../assets/Artists/Yugsingh.jpg"
+import shreyashukla from "../../../../assets/Artists/shreyashukla .jpg"
+import Sunidhi from "../../../../assets/Artists/sunidhi.jpg"
+
+
 
 export default function ArtistsShow() {
     return (
@@ -24,13 +35,16 @@ export default function ArtistsShow() {
                                 srcSet={artist.imageSrc}
                                 src={artist.imageSrc}
                                 alt={artist.name}
-                                className="m-0 mb-6 w-full"
+                                className="m-0 mb-6 w-full object-cover h-56 rounded-full"
                             />
                             <span className="dark:text-white text-xs font-semibold leading-4 text-gray-900 lg:text-base lg:leading-6">
                                 {artist.name}
                             </span>
                             <span className="text-xs leading-4 text-gray-500 lg:text-base lg:leading-6 dark:text-white">
                                 {artist.position}
+                            </span>
+                            <span className="text-xs leading-4 text-gray-500 lg:text-base lg:leading-6 dark:text-white">
+                                {artist.Best}
                             </span>
                         </div>
                     </div>
@@ -43,44 +57,58 @@ export default function ArtistsShow() {
 // Sample data for artists
 const artistsData = [
     {
-        name: "Civan Özseyhan",
-        position: "Co-Founder, CEO",
-        imageSrc: "https://refine.ams3.cdn.digitaloceanspaces.com/website/static/about/images/team-avatars/civan.png",
+        name: "Anushka Vishwakarma",
+        position: "anushkavishwakarma269@gmail.com",
+        Best: "Pencil Portrait, wall painting, Paintings",
+        imageSrc: AnushkaVishwakarma,
     },
     {
-        name: "Ömer Aplak",
-        position: "Co-Founder, CTO",
-        imageSrc: "https://refine.ams3.cdn.digitaloceanspaces.com/website/static/about/images/team-avatars/omer.png",
+        name: "Saurabh Kumar",
+        position: "krsaurabh7488@gmail.com",
+        Best: "Portrait, Miniature Drawing",
+        imageSrc: SaurabhKumar,
     },
     {
-        name: "Eren Erkalkan",
-        position: "Co-Founder, CPO",
-        imageSrc: "https://refine.ams3.cdn.digitaloceanspaces.com/website/static/about/images/team-avatars/eren.png",
+        name: "Akriti Verma",
+        position: "akritiv0202@gmail.com",
+        Best: "Oil Painting, Portrait, Craft",
+        imageSrc: Aakritiverma,
     },
     {
-        name: "Batuhan Özgür Özdemir",
-        position: "Tech Lead",
-        imageSrc: "https://refine.ams3.cdn.digitaloceanspaces.com/website/static/about/images/team-avatars/batuhan.png",
+        name: "Sheetal Chhaya",
+        position: "mynameissheetalchhaya@gmail.com",
+        Best: "Landscape Painting",
+        imageSrc: Sheetalchaya,
     },
     {
-        name: "Ali Emir Şen",
-        position: "Senior Software Developer",
-        imageSrc: "https://refine.ams3.cdn.digitaloceanspaces.com/website/static/about/images/team-avatars/ali.png",
+        name: "Yuvraj sharma",
+        position: "yuvraj1992002@gmail.com",
+        Best: "Water Colour",
+        imageSrc: YuvrajSharma,
     },
     {
-        name: "Alican Erdurmaz",
-        position: "Software Developer",
-        imageSrc: "https://refine.ams3.cdn.digitaloceanspaces.com/website/static/about/images/team-avatars/alican.png",
+        name: "Annushri Mandal",
+        position: "annushrimandal@gmail.com",
+        Best: "Oil Painting, Water Colour, Sketching",
+        imageSrc: ANNUSHRIMANDAL,
     },
     {
-        name: "Necati Ozmen",
-        position: "Head of Growth",
-        imageSrc: "https://refine.ams3.cdn.digitaloceanspaces.com/website/static/about/images/team-avatars/necati.png",
+        name: "Yug Sharma",
+        position: "yugsingh.era@gmail.com",
+        Best: "Watercolour, Painting",
+        imageSrc: Yugsingh
     },
     {
-        name: "Recep Kütük",
-        position: "Senior Product Designer",
-        imageSrc: "https://refine.ams3.cdn.digitaloceanspaces.com/website/static/about/images/team-avatars/recep.png",
+        name: "Shreya Shukla",
+        position: "shuklashreya5123@gmail.com",
+        Best: "Painting",
+        imageSrc: shreyashukla,
+    },
+    {
+        name: "Sunidhi Kumari",
+        position: "sunidhikri2389@gmail.com",
+        Best: "Clay modelling, wax sculpting, welding",
+        imageSrc: Sunidhi
     },
 ];
 const duplicatedSlides = [...artistsData, ...artistsData];

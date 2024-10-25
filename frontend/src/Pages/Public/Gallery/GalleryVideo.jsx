@@ -1,26 +1,31 @@
 import React from "react";
+import video1 from '../../../assets/Videos/video1.mp4';
+import video2 from '../../../assets/Videos/video2.mp4';
+import video3 from '../../../assets/Videos/video3.mp4';
+import video4 from '../../../assets/Videos/video4.mp4';
+
 
 export function GalleryVideo() {
     const data = [
         {
-            imgelink: "https://docs.material-tailwind.com/demo.mp4",
+            imgelink: video1,
         },
         {
-            imgelink: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+            imgelink: video2,
         },
         {
-            imgelink: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+            imgelink: video3,
         },
+        {
+            imgelink: video4,
+        }
     ];
 
-    const [active, setActive] = React.useState(
-        "https://docs.material-tailwind.com/demo.mp4"
-    );
-    console.log(active,"::SDs655")
+    const [active, setActive] = React.useState(video1);
     return (
         <div className="grid gap-4">
             <div>
-                <video  key={active} className="h-full w-full rounded-lg" controls>
+                <video key={active} className="h-[500px] w-full rounded-lg" controls autoPlay>
                     <source src={active} type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
@@ -28,7 +33,7 @@ export function GalleryVideo() {
             <div className="grid grid-cols-9 gap-4">
                 {data.map(({ imgelink }, index) => (
                     <div key={index} onClick={() => setActive(imgelink)} className="cursor-pointer">
-                        <video  className="h-20 max-w-full cursor-pointer rounded-lg object-cover object-center">
+                        <video  className="h-20 w-32 max-w-full cursor-pointer rounded-lg object-cover object-center">
                             <source src={imgelink} type="video/mp4" />
                             Your browser does not support the video tag.
                         </video>
