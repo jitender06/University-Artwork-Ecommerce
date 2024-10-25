@@ -91,7 +91,9 @@ export default function ProductDetail({ Finalproduct, cate }) {
                         </h3>
                         <p className="mt-1 text-sm text-gray-500">{Finalproduct?.category ? Finalproduct?.category?.charAt(0).toUpperCase() + Finalproduct?.category?.slice(1) : ""}</p>
                     </div>
-                    <p className="text-sm font-medium text-gray-900 dark:text-white">₹{Finalproduct.price}</p>
+                    {
+                        (cate == "painting" || cate == "drawing") && <p className="text-sm font-medium text-gray-900 dark:text-white">₹{Finalproduct.price}</p>
+                    }
                 </div>
             </div>
 
@@ -132,8 +134,9 @@ export default function ProductDetail({ Finalproduct, cate }) {
                                             <h3 id="information-heading">
                                                 {Finalproduct?.description ? Finalproduct?.description?.charAt(0).toUpperCase() + Finalproduct?.description?.slice(1) : ""}
                                             </h3>
-
-                                            <p className="text-2xl text-gray-900">₹{Finalproduct.price}</p>
+                                            {
+                                                (cate == "painting" || cate == "drawing") &&  <p className="text-2xl text-gray-900">₹{Finalproduct.price}</p>
+                                            }
 
                                             {/* Reviews */}
                                             <div className="mt-6">
@@ -152,9 +155,9 @@ export default function ProductDetail({ Finalproduct, cate }) {
                                                         ))}
                                                     </div>
                                                     <p className="sr-only">{product.rating} out of 5 stars</p>
-                                                    <div className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">
+                                                    {/* <div className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">
                                                         {product.reviewCount} reviews
-                                                    </div>
+                                                    </div> */}
                                                 </div>
                                             </div>
                                         </section>

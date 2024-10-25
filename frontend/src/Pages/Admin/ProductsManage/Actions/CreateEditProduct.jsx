@@ -27,6 +27,7 @@ export default function CreateEditProduct({ maksad, productData, fetchProductDat
         description: productData?.description || '',
         productImage: productData?.productImage || null,
     });
+
     const handleClickOpen = () => {
         setOpen(true);
     };
@@ -49,6 +50,9 @@ export default function CreateEditProduct({ maksad, productData, fetchProductDat
             productImage: e.target.files[0],
         }));
     };
+
+    console.log(formData,"::DFasd")
+    
     const data = JSON.parse(localStorage.getItem('data'));
     let token = data?.accessToken;
     const handleSubmit = async (e) => {
@@ -85,7 +89,7 @@ export default function CreateEditProduct({ maksad, productData, fetchProductDat
                         status: 'active',
                         description: '',
                         productImage: null,
-                        category: ''
+                        category: 'painting'
                     });
 
                     toast.success('Product added successfully', {

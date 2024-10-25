@@ -2,22 +2,27 @@ import React, { useState } from 'react';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css'; // Splide's CSS
 import { motion } from 'framer-motion';
+import gallery1 from '../../../assets/gallery1.jpeg'
+import gallery2 from '../../../assets/gallery2.jpeg'
+import gallery3 from '../../../assets/gallery3.jpeg'
+import gallery4 from '../../../assets/gallery4.jpeg'
+import gallery5 from '../../../assets/galleryImages/gallery5.JPG'
+import gallery6 from '../../../assets/galleryImages/gallery6.JPG'
+import gallery7 from '../../../assets/galleryImages/gallery7.JPG'
+import gallery8 from '../../../assets/galleryImages/gallery8.PNG'
+import gallery9 from '../../../assets/galleryImages/gallery9.PNG'
+
 
 const images = [
-    "https://tailwindui.com/plus/img/ecommerce-images/home-page-03-hero-image-tile-05.jpg",
-    "https://tailwindui.com/plus/img/ecommerce-images/home-page-03-hero-image-tile-01.jpg",
-    "https://tailwindui.com/plus/img/ecommerce-images/home-page-03-hero-image-tile-03.jpg",
-    "https://tailwindui.com/plus/img/ecommerce-images/home-page-03-hero-image-tile-02.jpg",
-    "https://tailwindui.com/plus/img/ecommerce-images/home-page-03-hero-image-tile-04.jpg",
-    "https://tailwindui.com/plus/img/ecommerce-images/home-page-03-hero-image-tile-03.jpg",
-    "https://tailwindui.com/plus/img/ecommerce-images/home-page-03-hero-image-tile-06.jpg",
-    "https://tailwindui.com/plus/img/ecommerce-images/home-page-03-hero-image-tile-05.jpg",
-    "https://tailwindui.com/plus/img/ecommerce-images/home-page-03-hero-image-tile-01.jpg",
-    "https://tailwindui.com/plus/img/ecommerce-images/home-page-03-hero-image-tile-03.jpg",
-    "https://tailwindui.com/plus/img/ecommerce-images/home-page-03-hero-image-tile-02.jpg",
-    "https://tailwindui.com/plus/img/ecommerce-images/home-page-03-hero-image-tile-04.jpg",
-    "https://tailwindui.com/plus/img/ecommerce-images/home-page-03-hero-image-tile-03.jpg",
-    "https://tailwindui.com/plus/img/ecommerce-images/home-page-03-hero-image-tile-06.jpg",
+    gallery1,
+    gallery2,
+    gallery3,
+    gallery4,
+    gallery5,
+    gallery6,
+    gallery7,
+    gallery8,
+    gallery9
 ];
 
 export default function GalleryCard() {
@@ -39,7 +44,7 @@ export default function GalleryCard() {
                     pauseOnHover: false,
                     interval: 4000, // Adjust for smoother auto-scroll timing
                     speed: 1000, // Slower speed for smoother transitions
-                    gap: '1rem',
+                    // gap: '0.5rem',
                     pagination: false,
                     arrows: false,
                     drag: true, // Enable dragging for user control
@@ -50,7 +55,7 @@ export default function GalleryCard() {
                         <motion.img
                             src={image}
                             alt={`Gallery ${index}`}
-                            className="cursor-pointer rounded-md"
+                            className="cursor-pointer rounded-md object-cover h-4/5 w-96"
                             whileHover={{ scale: 1.05 }} // Framer Motion hover effect
                             onClick={() => setSelectedImage(image)} // Click to enlarge image
                         />

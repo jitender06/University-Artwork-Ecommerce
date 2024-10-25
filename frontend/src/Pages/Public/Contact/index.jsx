@@ -1,7 +1,20 @@
 import React from "react";
 import { Button, Input, Textarea, Typography } from "@material-tailwind/react";
+import { useState } from 'react'
+import { ChevronDownIcon } from '@heroicons/react/20/solid'
+import { Field, Label, Switch } from '@headlessui/react'
 
 export function Contact() {
+  const [contactData, setContactData] = useState({
+    firstname:"",
+    lastname:"",
+    email:"",
+    message:""
+  })
+  const handleChange = (key, value) => {
+    setContactData((prev) => ({...prev, [key]: value}))
+  }
+
   return (
     <section className="px-8 py-8 lg:py-16">
       <div className="container mx-auto text-center">
@@ -25,100 +38,82 @@ export function Contact() {
           eager to hear from you.
         </Typography>
         <div className="grid grid-cols-1 gap-x-12 gap-y-6 lg:grid-cols-2 items-start">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d57634.828899786335!2d81.857463!3d25.465771!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1729491287166!5m2!1sen!2sus" width="600" height="450" style={{border:0}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-          <form
-            action="#"
-            className="flex flex-col gap-4 lg:max-w-sm"
-          >
-            <div className="grid grid-cols-2 gap-4">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d57634.828899786335!2d81.857463!3d25.465771!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1729491287166!5m2!1sen!2sus" width="600" height="450" style={{ border: 0 }} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <form action="#" method="POST" className="mx-auto max-w-xl">
+            <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2 ">
               <div>
-                <Typography
-                  variant="small"
-                  className="mb-2 text-left font-medium !text-gray-900"
-                >
-                  First Name
-                </Typography>
-                <Input
-                  color="gray"
-                  size="lg"
-                  placeholder="First Name"
-                  name="first-name"
-                  className="focus:border-t-gray-900"
-                  containerProps={{
-                    className: "min-w-full",
-                  }}
-                  labelProps={{
-                    className: "hidden",
-                  }}
-                />
+                <label htmlFor="firstname" className="text-start block text-sm font-semibold leading-6 text-gray-900">
+                  First name
+                </label>
+                <div className="mt-2.5">
+                  <input
+                    id="firstname"
+                    name="firstname"
+                    value={contactData?.firstname}
+                    onChange={(e) => handleChange(e.target.name, e.target.value)}
+                    type="text"
+                    autoComplete="given-name"
+                    className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  />
+                </div>
               </div>
               <div>
-                <Typography
-                  variant="small"
-                  className="mb-2 text-left font-medium !text-gray-900"
-                >
-                  Last Name
-                </Typography>
-                <Input
-                  color="gray"
-                  size="lg"
-                  placeholder="Last Name"
-                  name="last-name"
-                  className="focus:border-t-gray-900"
-                  containerProps={{
-                    className: "!min-w-full",
-                  }}
-                  labelProps={{
-                    className: "hidden",
-                  }}
-                />
+                <label htmlFor="lastname" className="text-start block text-sm font-semibold leading-6 text-gray-900">
+                  Last name
+                </label>
+                <div className="mt-2.5">
+                  <input
+                    id="lastname"
+                    name="lastname"
+                    value={contactData?.lastname}
+                    onChange={(e) => handleChange(e.target.name, e.target.value)}
+                    type="text"
+                    autoComplete="family-name"
+                    className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  />
+                </div>
+              </div>
+              <div className="sm:col-span-2">
+                <label htmlFor="email" className="text-start block text-sm font-semibold leading-6 text-gray-900">
+                  Email
+                </label>
+                <div className="mt-2.5">
+                  <input
+                    id="email"
+                    name="email"
+                    value={contactData?.email}
+                    onChange={(e) => handleChange(e.target.name, e.target.value)}
+                    type="email"
+                    autoComplete="email"
+                    className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  />
+                </div>
+              </div>
+              <div className="sm:col-span-2">
+                <label htmlFor="message" className="text-start block text-sm font-semibold leading-6 text-gray-900">
+                  Message
+                </label>
+                <div className="mt-2.5">
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={contactData?.message}
+                    onChange={(e) => handleChange(e.target.name, e.target.value)}
+                    rows={4}
+                    className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    defaultValue={''}
+                  />
+                </div>
               </div>
             </div>
-            <div>
-              <Typography
-                variant="small"
-                className="mb-2 text-left font-medium !text-gray-900"
+            <div className="mt-10">
+              <button
+                type="submit"
+                className="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
-                Your Email
-              </Typography>
-              <Input
-                color="gray"
-                size="lg"
-                placeholder="name@email.com"
-                name="email"
-                className="focus:border-t-gray-900"
-                containerProps={{
-                  className: "!min-w-full",
-                }}
-                labelProps={{
-                  className: "hidden",
-                }}
-              />
+                Let's talk
+              </button>
             </div>
-            <div>
-              <Typography
-                variant="small"
-                className="mb-2 text-left font-medium !text-gray-900"
-              >
-                Your Message
-              </Typography>
-              <Textarea
-                rows={6}
-                color="gray"
-                placeholder="Message"
-                name="message"
-                className="focus:border-t-gray-900"
-                containerProps={{
-                  className: "!min-w-full",
-                }}
-                labelProps={{
-                  className: "hidden",
-                }}
-              />
-            </div>
-            <Button className="w-full" color="gray">
-              Send message
-            </Button>
           </form>
         </div>
       </div>

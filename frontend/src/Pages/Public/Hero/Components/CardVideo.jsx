@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 
+
 // Handler hook for when Outside click dropdown close
 let useClickOutside = (handler) => {
   let domNode = useRef();
@@ -20,7 +21,7 @@ let useClickOutside = (handler) => {
 };
 // Handler hook for when Outside click dropdown close End Code====>>
 
-const CardVideo = () => {
+const CardVideo = ({video, back}) => {
   const [videoOpen, setvideoOpen] = useState(false);
 
   let domNode = useClickOutside(() => {
@@ -35,7 +36,7 @@ const CardVideo = () => {
             <div className="relative z-20 h-[300px] overflow-hidden rounded-lg md:h-[450px]">
               <div className="absolute left-0 top-0 h-full w-full">
                 <img
-                  src="https://i.ibb.co/KbSwcWJ/image-01-1.jpg"
+                  src={back}
                   alt="bg"
                   className="h-full w-full object-cover object-center"
                 />
@@ -429,7 +430,7 @@ const CardVideo = () => {
             <>
               <iframe
                 className="h-[320px] w-full"
-                src="https://www.youtube.com/embed/LXb3EKWsInQ?autoplay=1&mute=1"
+                src={video}
               />
             </>
           </div>

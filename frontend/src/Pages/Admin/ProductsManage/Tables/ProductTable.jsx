@@ -93,7 +93,7 @@ export function ProductTable() {
                       </td>
                       <td className={classes}>
                         <Typography variant="small" color="blue-gray" className="font-normal">
-                          {description?.charAt(0).toUpperCase() + description?.slice(0, 22) + "..."}
+                          {description?.charAt(0).toUpperCase() + description?.slice(1, 22) + "..."}
                         </Typography>
                       </td>
                       <td className={classes}>
