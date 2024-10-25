@@ -20,7 +20,7 @@ const app = express();
 
 connectDB();
 const corsOptions = {
-    origin: 'https://allahabaduniversity.netlify.app', // Replace with your frontend URL
+    origin: 'https://allahabad-university.netlify.app', // Replace with your frontend URL
     methods: ['GET', 'POST', 'PUT', 'DELETE'], // Adjust methods as needed
     credentials: true, // If you need to allow cookies
 };
