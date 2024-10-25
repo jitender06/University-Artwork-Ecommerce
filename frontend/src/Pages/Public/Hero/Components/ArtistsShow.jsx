@@ -35,7 +35,7 @@ export default function ArtistsShow() {
                                 srcSet={artist.imageSrc}
                                 src={artist.imageSrc}
                                 alt={artist.name}
-                                className="m-0 mb-6 w-full object-cover h-56 rounded-full"
+                                className="m-0 mb-6 w-full object-cover md:h-56 rounded-full"
                             />
                             <span className="dark:text-white text-xs font-semibold leading-4 text-gray-900 lg:text-base lg:leading-6">
                                 {artist.name}
