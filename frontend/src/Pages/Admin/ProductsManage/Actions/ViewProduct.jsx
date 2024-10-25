@@ -99,7 +99,7 @@ export default function ViewProduct({ productData }) {
     //     if (maksad === 'add') {
     //         try {
     //             // API request to add product
-    //             const { data } = await axios.post('http://localhost:8000/api/products', formData, {
+    //             const { data } = await axios.post('https://university-artwork-ecommerce.onrender.com/api/products', formData, {
     //                 headers: {
     //                     'Content-Type': 'multipart/form-data',
     //                     'Authorization': `Bearer ${token}`,
@@ -139,7 +139,7 @@ export default function ViewProduct({ productData }) {
     //     } else if (maksad === 'edit') {
     //         try {
     //             // API request to edit product
-    //             await axios.put(`http://localhost:8000/api/product/${productData?._id}`, formData, {
+    //             await axios.put(`https://university-artwork-ecommerce.onrender.com/api/product/${productData?._id}`, formData, {
     //                 headers: {
     //                     'Content-Type': 'multipart/form-data',
     //                     'Authorization': `Bearer ${token}`
@@ -198,7 +198,7 @@ export default function ViewProduct({ productData }) {
                             <div className=" h-96">
                                 <img
                                     alt={product.images[0].alt}
-                                    src={`http://localhost:8000/${productData?.productImage?.path}`}
+                                    src={`https://university-artwork-ecommerce.onrender.com/${productData?.productImage?.path}`}
                                     className="h-full w-full object-contain object-center"
                                 />
 

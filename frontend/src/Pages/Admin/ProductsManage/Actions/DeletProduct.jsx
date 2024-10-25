@@ -35,7 +35,7 @@ export default function DeletProduct({productData, fetchProductData}) {
         console.log("clickeddd")
         try {
             // API request to edit product
-            await axios.delete(`http://localhost:8000/api/product/${productData?._id}`, {
+            await axios.delete(`https://university-artwork-ecommerce.onrender.com/api/product/${productData?._id}`, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     'Authorization': `Bearer ${token}`

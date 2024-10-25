@@ -54,7 +54,7 @@ export default function ProductDetail({ Finalproduct, cate }) {
             });
         } else {
             try {
-                const { data } = await axios.post('http://localhost:8000/api/cart', { productId, quantity }, {
+                const { data } = await axios.post('https://university-artwork-ecommerce.onrender.com/api/cart', { productId, quantity }, {
                     headers: {
                         'Authorization': `Bearer ${token}`,
                     },
@@ -79,7 +79,7 @@ export default function ProductDetail({ Finalproduct, cate }) {
                 <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
                     <img
                         alt={Finalproduct._id}
-                        src={`http://localhost:8000/${Finalproduct?.productImage?.path}`}
+                        src={`https://university-artwork-ecommerce.onrender.com/${Finalproduct?.productImage?.path}`}
                         className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                     />
                 </div>
@@ -123,7 +123,7 @@ export default function ProductDetail({ Finalproduct, cate }) {
                                     <div className="aspect-h-3 aspect-w-2 overflow-hidden rounded-lg bg-gray-100 sm:col-span-4 lg:col-span-5 my-auto">
                                         <img
                                             alt={Finalproduct._id}
-                                            src={`http://localhost:8000/${Finalproduct?.productImage?.path}`}
+                                            src={`https://university-artwork-ecommerce.onrender.com/${Finalproduct?.productImage?.path}`}
                                             className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                                         />
                                     </div>

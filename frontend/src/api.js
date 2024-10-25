@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 const API = axios.create({
-    baseURL: 'http://localhost:8000', // Change this to your backend URL
+    baseURL: 'https://university-artwork-ecommerce.onrender.com', // Change this to your backend URL
     withCredentials: true,
 });
 

@@ -12,7 +12,7 @@ export default function ArtworkStore({ cate }) {
 
   const fetchProductData = async () => {
     try {
-      const { data } = await axios.get("http://localhost:8000/api/getproducts")
+      const { data } = await axios.get("https://university-artwork-ecommerce.onrender.com/api/getproducts")
       setProducts(data)
 
     } catch (error) {
@@ -31,7 +31,7 @@ export default function ArtworkStore({ cate }) {
     if (data) {
       // Store data in localStorage
       localStorage.setItem('data', data);
-      navigate('/artwork'); // Redirect or update state as needed
+      navigate('/painting'); // Redirect or update state as needed
     }
   }, [navigate]);
   return (
