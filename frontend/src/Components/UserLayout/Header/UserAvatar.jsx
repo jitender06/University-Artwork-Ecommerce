@@ -27,7 +27,7 @@ export default function UserAvatar() {
   const token = data?.refreshToken
   const handleLogout = async (token) => {
     try {
-      const response = await fetch('http://localhost:8000/auth/logout', {
+      const response = await fetch('https://university-artwork-ecommerce.onrender.com/auth/logout', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

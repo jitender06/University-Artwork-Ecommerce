@@ -11,7 +11,7 @@ export default function Dashboard() {
   const [TABLE_ROWS, setTABLE_ROWS] = useState()
   const fetchProductData = async () => {
     try {
-      const { data } = await axios.get("http://localhost:8000/api/getproducts")
+      const { data } = await axios.get("https://university-artwork-ecommerce.onrender.com/api/getproducts")
       console.log(data, "dataproduct5656")
       setTABLE_ROWS(data)
 
@@ -135,7 +135,7 @@ export default function Dashboard() {
                         TABLE_ROWS?.slice(0, 6).map(({ title, description, status, price, category, createdAt, updatedAt, productImage, _id }, index) => (
                           <div key={_id} className="mb-2 flex items-center justify-between py-2 dark:border-gray-600">
                             <div className="flex items-center gap-2">
-                              <Avatar src={`http://localhost:8000/${productImage?.path}`} alt={title} size="sm" />
+                              <Avatar src={`https://university-artwork-ecommerce.onrender.com/${productImage?.path}`} alt={title} size="sm" />
                               <div>
                                 <div className="heading-text font-bold">{title?.charAt(0).toUpperCase() + title?.slice(1)}</div>
                                 <div className='max-w-16 text-sm'>

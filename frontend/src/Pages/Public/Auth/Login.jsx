@@ -17,7 +17,7 @@ export default function Login() {
             if (res.data && res?.data?.user?.role === "admin") {
                 navigate('/admin/dashboard');
             } else {
-                navigate('/artwork');
+                navigate('/painting');
             }
 
         } catch (error) {
@@ -35,7 +35,7 @@ export default function Login() {
     };
 
     const handleGoogleLogin = async () => {
-        window.location.href = 'http://localhost:8000/auth/google';
+        window.location.href = 'https://university-artwork-ecommerce.onrender.com/auth/google';
     };
 
     return (

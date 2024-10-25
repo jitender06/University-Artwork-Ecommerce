@@ -40,7 +40,7 @@ router.get(
         };
 
         // Redirect to the frontend with data as query params (can be handled by frontend)
-        const redirectUrl = `http://localhost:5173/artwork?data=${encodeURIComponent(JSON.stringify(data))}`;
+        const redirectUrl = `http://localhost:5173/painting?data=${encodeURIComponent(JSON.stringify(data))}`;
         res.redirect(redirectUrl);
     }
 );
