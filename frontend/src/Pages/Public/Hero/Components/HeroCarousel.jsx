@@ -13,7 +13,6 @@ const ImagesData = [
   Img1,
   Img2,
   Img3,
-  'https://lh3.googleusercontent.com/p/AF1QipO9aAkXCAD7Z-5GW6IJSuKiCkjR6pWrIte-sHnf=s680-w680-h510',
   'https://www.allduniv.ac.in/public/assets/uploads/media-uploader/nirf-web-new-3a1723533553.jpg',
   'https://www.allduniv.ac.in/public/assets/uploads/media-uploader/41716277923.jpg',
   'https://www.allduniv.ac.in/public/assets/uploads/media-uploader/cms-22771706258681.jpg',

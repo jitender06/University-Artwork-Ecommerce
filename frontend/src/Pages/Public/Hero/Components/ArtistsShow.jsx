@@ -9,7 +9,7 @@ import ANNUSHRIMANDAL from "../../../../assets/Artists/ANNUSHRIMANDAL.jpg"
 import Yugsingh from "../../../../assets/Artists/Yugsingh.jpg"
 import shreyashukla from "../../../../assets/Artists/shreyashukla .jpg"
 import Sunidhi from "../../../../assets/Artists/sunidhi.jpg"
-
+import NewArtist from "../../../../assets/Videos/newartist.PNG"
 
 
 export default function ArtistsShow() {
@@ -109,6 +109,12 @@ const artistsData = [
         position: "sunidhikri2389@gmail.com",
         Best: "Clay modelling, wax sculpting, welding",
         imageSrc: Sunidhi
+    },
+    {
+        name: "Shagun Mishra",
+        position: "gdshagunmishra@gmail.com",
+        Best: "Digital Art, Logo design",
+        imageSrc: NewArtist
     },
 ];
 const duplicatedSlides = [...artistsData, ...artistsData];

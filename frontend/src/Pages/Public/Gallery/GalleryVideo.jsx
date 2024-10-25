@@ -3,6 +3,16 @@ import video1 from '../../../assets/Videos/video1.mp4';
 import video2 from '../../../assets/Videos/video2.mp4';
 import video3 from '../../../assets/Videos/video3.mp4';
 import video4 from '../../../assets/Videos/video4.mp4';
+import newvideo1 from '../../../assets/Videos/newvideo1.mp4';
+import newvideo2 from '../../../assets/Videos/newvideo2.mp4';
+import newvideo3 from '../../../assets/Videos/newvideo3.mp4';
+import newvideo4 from '../../../assets/Videos/newvideo4.mp4';
+import newvideo5 from '../../../assets/Videos/newvideo5.mp4';
+import newvideo6 from '../../../assets/Videos/newvideo6.mp4';
+import newvideo7 from '../../../assets/Videos/newvideo7.mp4';
+import newvideo8 from '../../../assets/Videos/newvideo8.mp4';
+import newvideo9 from '../../../assets/Videos/newvideo9.mp4';
+
 
 
 export function GalleryVideo() {
@@ -18,6 +28,33 @@ export function GalleryVideo() {
         },
         {
             imgelink: video4,
+        },
+        {
+            imgelink: newvideo1,
+        },
+        {
+            imgelink: newvideo2,
+        },
+        {
+            imgelink: newvideo3,
+        },
+        {
+            imgelink: newvideo4,
+        },
+        {
+            imgelink: newvideo5,
+        },
+        {
+            imgelink: newvideo6,
+        },
+        {
+            imgelink: newvideo7,
+        },
+        {
+            imgelink: newvideo8,
+        },
+        {
+            imgelink: newvideo9,
         }
     ];
 
@@ -25,7 +62,7 @@ export function GalleryVideo() {
     return (
         <div className="grid gap-4">
             <div>
-                <video key={active} className="h-[500px] w-full rounded-lg" controls autoPlay>
+                <video key={active} className="h-[500px] w-full rounded-lg" controls>
                     <source src={active} type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
