@@ -9,6 +9,10 @@ import Yugsingh from "../../../assets/Artists/Yugsingh.jpg"
 import shreyashukla from "../../../assets/Artists/shreyashukla .jpg"
 import Sunidhi from "../../../assets/Artists/sunidhi.jpg"
 import Img1 from '../../../assets/Carousel/img1.jpg'
+import AmritaPandey from "../../../assets/Artists/AmritaPandey .jpeg"
+import NewArtist from "../../../assets/Videos/newartist.PNG"
+import ShreyaBhardwaj from "../../../assets/Artists/ShreyaBhardwaj.jpg"
+
 const artistsData = [
   {
     name: "Saurabh Kumar",
@@ -35,9 +39,9 @@ const artistsData = [
     imageSrc: YuvrajSharma,
   },
   {
-    name: "Annushri Mandal",
-    position: "annushrimandal@gmail.com",
-    Best: "Oil Painting, Water Colour, Sketching",
+    name: "Preraj",
+    position: "preraj9569singh@gmail.com",
+    Best: "Water Colour",
     imageSrc: ANNUSHRIMANDAL,
   },
   {
@@ -63,7 +67,25 @@ const artistsData = [
     position: "anushkavishwakarma269@gmail.com",
     Best: "Pencil Portrait, wall painting, Paintings",
     imageSrc: AnushkaVishwakarma,
-  }
+  },
+  {
+    name: "Shagun Mishra",
+    position: "gdshagunmishra@gmail.com",
+    Best: "Digital Art, Logo design",
+    imageSrc: NewArtist
+  },
+  {
+      name: " Shreya Bhardwaj",
+      position: "shreyamishu24@gmail.com",
+      Best: "Painting",
+      imageSrc: ShreyaBhardwaj
+  },
+  {
+    name: "Amrita Pandey",
+    position: "amritapandey60@gmail.com",
+    Best: "Digital Art",
+    imageSrc: AmritaPandey
+},
 ];
 
 export default function AboutUs() {

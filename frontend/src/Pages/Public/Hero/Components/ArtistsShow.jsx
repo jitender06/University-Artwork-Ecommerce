@@ -10,6 +10,8 @@ import Yugsingh from "../../../../assets/Artists/Yugsingh.jpg"
 import shreyashukla from "../../../../assets/Artists/shreyashukla .jpg"
 import Sunidhi from "../../../../assets/Artists/sunidhi.jpg"
 import NewArtist from "../../../../assets/Videos/newartist.PNG"
+import ShreyaBhardwaj from "../../../../assets/Artists/ShreyaBhardwaj.jpg"
+import AmritaPandey from "../../../../assets/Artists/AmritaPandey .jpeg"
 
 
 export default function ArtistsShow() {
@@ -86,10 +88,16 @@ const artistsData = [
         Best: "Water Colour",
         imageSrc: YuvrajSharma,
     },
+    // {
+    //     name: "Annushri Mandal",
+    //     position: "annushrimandal@gmail.com",
+    //     Best: "Oil Painting, Water Colour, Sketching",
+    //     imageSrc: ANNUSHRIMANDAL,
+    // },
     {
-        name: "Annushri Mandal",
-        position: "annushrimandal@gmail.com",
-        Best: "Oil Painting, Water Colour, Sketching",
+        name: "Preraj",
+        position: "preraj9569singh@gmail.com",
+        Best: "Water Colour",
         imageSrc: ANNUSHRIMANDAL,
     },
     {
@@ -115,6 +123,18 @@ const artistsData = [
         position: "gdshagunmishra@gmail.com",
         Best: "Digital Art, Logo design",
         imageSrc: NewArtist
+    },
+    {
+        name: " Shreya Bhardwaj",
+        position: "shreyamishu24@gmail.com",
+        Best: "Painting",
+        imageSrc: ShreyaBhardwaj
+    },
+    {
+        name: "Amrita Pandey",
+        position: "amritapandey60@gmail.com",
+        Best: "Digital Art",
+        imageSrc: AmritaPandey
     },
 ];
 const duplicatedSlides = [...artistsData, ...artistsData];

@@ -8,24 +8,36 @@ import carousel4 from '../../../../assets/carousel4.PNG'
 import carousel5 from '../../../../assets/carousel5.PNG'
 import carousel6 from '../../../../assets/carousel6.PNG'
 
+import newcar1 from "../../../../assets/Carousel/newcar1.jpg"
+import newcar2 from "../../../../assets/Carousel/newcar2.jpg"
+import newcar3 from "../../../../assets/Carousel/newcar3.jpg"
+import newcar4 from "../../../../assets/Carousel/newcar4.jpg"
+import newcar5 from "../../../../assets/Carousel/newcar5.jpg"
+import newcar6 from "../../../../assets/Carousel/newcar6.jpg"
+import newcar7 from "../../../../assets/Carousel/newcar7.JPG"
+import newcar8 from "../../../../assets/Carousel/newcar8.JPG"
+import newcar9 from "../../../../assets/Carousel/newcar9.jpg"
+import newcar10 from "../../../../assets/Carousel/newcar10.JPG"
+import newcar11 from "../../../../assets/Carousel/newcar11.PNG"
+
+
 
 const ImagesData = [
   Img1,
   Img2,
   Img3,
-  'https://www.allduniv.ac.in/public/assets/uploads/media-uploader/nirf-web-new-3a1723533553.jpg',
-  'https://www.allduniv.ac.in/public/assets/uploads/media-uploader/41716277923.jpg',
-  'https://www.allduniv.ac.in/public/assets/uploads/media-uploader/cms-22771706258681.jpg',
-  'https://www.allduniv.ac.in/public/assets/uploads/media-uploader/finalslideimage1702638345.PNG',
-  'https://www.allduniv.ac.in/public/assets/uploads/media-uploader/republic-day-02-20231675247711.jpeg',
+  newcar1,
+  newcar2,
+  newcar3,
+  newcar4,
+  newcar5,
+  newcar6,
+  newcar7,
+  newcar8,
+  newcar9,
+  newcar10,
+  newcar11,
   'https://www.allduniv.ac.in/public/assets/uploads/media-uploader/img-08301668052307.jpg',
-  'https://www.allduniv.ac.in/public/assets/uploads/media-uploader/21627362613.jpg',
-  'https://www.allduniv.ac.in/public/assets/uploads/media-uploader/161627363226.jpg',
-  'https://www.allduniv.ac.in/public/assets/uploads/media-uploader/slider81636461048.jpeg',
-  carousel4,
-  carousel5,
-  carousel6,
-  Img4,
 ]
 export default function HeroCarousel() {
   return (

@@ -17,6 +17,31 @@ import carousel4 from '../../../assets/carousel4.PNG'
 import carousel5 from '../../../assets/carousel5.PNG'
 import carousel6 from '../../../assets/carousel6.PNG'
 
+import newgal1 from '../../../assets/galleryImages/newgal1.jpg'
+import newgal2 from '../../../assets/galleryImages/newgal2.jpg'
+import newgal3 from '../../../assets/galleryImages/newgal3.jpg'
+import newgal4 from '../../../assets/galleryImages/newgal4.jpg'
+import newgal5 from '../../../assets/galleryImages/newgal5.jpg'
+
+import newgal6 from '../../../assets/galleryImages/newgal6.JPG'
+import newgal7 from '../../../assets/galleryImages/newgal7.JPG'
+import newgal8 from '../../../assets/galleryImages/newgal8.JPG'
+
+import newgal9 from '../../../assets/galleryImages/newgal9.jpg'
+
+import newgal10 from '../../../assets/galleryImages/newgal10.JPG'
+import newgal11 from '../../../assets/galleryImages/newgal11.JPG'
+import newgal12 from '../../../assets/galleryImages/newgal12.JPG'
+import newgal13 from '../../../assets/galleryImages/newgal13.JPG'
+import newgal14 from '../../../assets/galleryImages/newgal14.JPG'
+import newgal15 from '../../../assets/galleryImages/newgal15.JPG'
+import newgal16 from '../../../assets/galleryImages/newgal16.JPG'
+import newgal17 from '../../../assets/galleryImages/newgal17.JPG'
+
+
+
+
+
 export function GalleryImages() {
   const data = [
     {
@@ -63,6 +88,57 @@ export function GalleryImages() {
     },
     {
       imgelink: carousel6
+    },
+    {
+      imgelink: newgal1
+    },
+    {
+      imgelink: newgal2
+    },
+    {
+      imgelink: newgal3
+    },
+    {
+      imgelink: newgal4
+    },
+    {
+      imgelink: newgal5
+    },
+    {
+      imgelink: newgal6
+    },
+    {
+      imgelink: newgal7
+    },
+    {
+      imgelink: newgal8
+    },
+    {
+      imgelink: newgal9
+    },
+    {
+      imgelink: newgal10
+    },
+    {
+      imgelink: newgal11
+    },
+    {
+      imgelink: newgal12
+    },
+    {
+      imgelink: newgal13
+    },
+    {
+      imgelink: newgal14
+    },
+    {
+      imgelink: newgal15
+    },
+    {
+      imgelink: newgal16
+    },
+    {
+      imgelink: newgal17
     },
     
   ];

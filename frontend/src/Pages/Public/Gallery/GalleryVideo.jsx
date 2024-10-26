@@ -6,13 +6,19 @@ import video4 from '../../../assets/Videos/video4.mp4';
 import newvideo1 from '../../../assets/Videos/newvideo1.mp4';
 import newvideo2 from '../../../assets/Videos/newvideo2.mp4';
 import newvideo3 from '../../../assets/Videos/newvideo3.mp4';
+
+
 import newvideo4 from '../../../assets/Videos/newvideo4.mp4';
 import newvideo5 from '../../../assets/Videos/newvideo5.mp4';
 import newvideo6 from '../../../assets/Videos/newvideo6.mp4';
 import newvideo7 from '../../../assets/Videos/newvideo7.mp4';
+
+
 import newvideo8 from '../../../assets/Videos/newvideo8.mp4';
 import newvideo9 from '../../../assets/Videos/newvideo9.mp4';
 
+import newvid1 from '../../../assets/Videos/newvid1.mp4'
+import newvid2 from '../../../assets/Videos/newvid2.mp4'
 
 
 export function GalleryVideo() {
@@ -55,6 +61,12 @@ export function GalleryVideo() {
         },
         {
             imgelink: newvideo9,
+        },
+        {
+            imgelink: newvid1,
+        },
+        {
+            imgelink: newvid2,
         }
     ];
 
