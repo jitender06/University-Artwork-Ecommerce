@@ -16,7 +16,7 @@ export default function Cart() {
 
     const fetchCartData = async () => {
         try {
-            const { data } = await axios.get("https://university-artwork-ecommerce.onrender.com/api/cart", {
+            const { data } = await axios.get("http://localhost:8000/api/cart", {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                 }
@@ -33,7 +33,7 @@ export default function Cart() {
 
     const removeItem = async (productId) => {
         try {
-            await axios.delete(`https://university-artwork-ecommerce.onrender.com/api/cart/${productId}`, {
+            await axios.delete(`http://localhost:8000/api/cart/${productId}`, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 },
@@ -118,7 +118,7 @@ export default function Cart() {
                                                                 <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                                                                     <img
                                                                         alt={product?._id}
-                                                                        src={`https://university-artwork-ecommerce.onrender.com/${product?.product?.productImage?.path}`}
+                                                                        src={`http://localhost:8000/${product?.product?.productImage?.path}`}
                                                                         className="h-full w-full object-cover object-center"
                                                                     />
                                                                 </div>

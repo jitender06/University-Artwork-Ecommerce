@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 
 import gallery1 from '../../../assets/gallery1.jpeg'
 import gallery2 from '../../../assets/gallery2.jpeg'
@@ -40,6 +40,140 @@ import newgal17 from '../../../assets/galleryImages/newgal17.JPG'
 
 
 
+
+
+// export function GalleryImages() {
+//   const data = [
+//     {
+//       imgelink: gallery1
+//     },
+//     {
+//       imgelink: gallery2
+//     },
+//     {
+//       imgelink: gallery3
+//     },
+//     {
+//       imgelink: gallery4
+//     },
+//     {
+//       imgelink: gallery5
+//     },
+//     {
+//       imgelink: gallery6
+//     },
+//     {
+//       imgelink: gallery7
+//     },
+//     {
+//       imgelink: gallery8
+//     },
+//     {
+//       imgelink: gallery9
+//     },
+//     {
+//       imgelink: carousel1
+//     },
+//     {
+//       imgelink: carousel2
+//     },
+//     {
+//       imgelink: carousel3
+//     },
+//     {
+//       imgelink: carousel4
+//     },
+//     {
+//       imgelink: carousel5
+//     },
+//     {
+//       imgelink: carousel6
+//     },
+//     {
+//       imgelink: newgal1
+//     },
+//     {
+//       imgelink: newgal2
+//     },
+//     {
+//       imgelink: newgal3
+//     },
+//     {
+//       imgelink: newgal4
+//     },
+//     {
+//       imgelink: newgal5
+//     },
+//     {
+//       imgelink: newgal6
+//     },
+//     {
+//       imgelink: newgal7
+//     },
+//     {
+//       imgelink: newgal8
+//     },
+//     {
+//       imgelink: newgal9
+//     },
+//     {
+//       imgelink: newgal10
+//     },
+//     {
+//       imgelink: newgal11
+//     },
+//     {
+//       imgelink: newgal12
+//     },
+//     {
+//       imgelink: newgal13
+//     },
+//     {
+//       imgelink: newgal14
+//     },
+//     {
+//       imgelink: newgal15
+//     },
+//     {
+//       imgelink: newgal16
+//     },
+//     {
+//       imgelink: newgal17
+//     },
+    
+//   ];
+ 
+//   const [active, setActive] = React.useState(gallery1);
+ 
+//   return (
+//     <div className="grid gap-4">
+//       <div>
+//         <img
+//           className="h-auto w-full max-w-full rounded-lg object-contain object-center md:h-[480px]"
+//           src={active}
+//           alt=""
+//         />
+//       </div>
+//       <div className="grid grid-cols-9 gap-4">
+//         {data.map(({ imgelink }, index) => (
+//           <div key={index}>
+//             <img
+//               onClick={() => setActive(imgelink)}
+//               src={imgelink}
+//               className="h-20 w-32 max-w-full cursor-pointer rounded-lg object-cover object-center"
+//               alt="gallery-image"
+//             />
+//           </div>
+//         ))}
+//       </div>
+//     </div>
+//   );
+// }
+
+
+import React, { useRef } from "react";
+import { Splide, SplideSlide } from "@splidejs/react-splide";
+import "@splidejs/splide/dist/css/splide.min.css";
 
 
 export function GalleryImages() {
@@ -142,26 +276,53 @@ export function GalleryImages() {
     },
     
   ];
- 
-  const [active, setActive] = React.useState(gallery1);
- 
+
+  const mainSliderRef = useRef(null);
+  const [activeIndex, setActiveIndex] = React.useState(0);
+
+  const handleThumbnailClick = (index) => {
+    setActiveIndex(index);
+    if (mainSliderRef.current) {
+      mainSliderRef.current.splide.go(index); // Move the main slider to the clicked thumbnail
+    }
+  };
+
   return (
     <div className="grid gap-4">
-      <div>
-        <img
-          className="h-auto w-full max-w-full rounded-lg object-contain object-center md:h-[480px]"
-          src={active}
-          alt=""
-        />
-      </div>
-      <div className="grid grid-cols-9 gap-4">
+      {/* Main Image Slider */}
+      <Splide
+        ref={mainSliderRef}
+        options={{
+          type: "fade",
+          rewind: true,
+          arrows: true,
+          pagination: false,  // Disable dots
+          autoplay: true,
+        }}
+        onMove={(splide) => setActiveIndex(splide.index)}  // Update active index on slide change
+        className="mb-4"
+      >
         {data.map(({ imgelink }, index) => (
-          <div key={index}>
+          <SplideSlide key={index}>
             <img
-              onClick={() => setActive(imgelink)}
               src={imgelink}
-              className="h-20 w-32 max-w-full cursor-pointer rounded-lg object-cover object-center"
-              alt="gallery-image"
+              alt={`gallery-${index}`}
+              className="h-auto w-full max-w-full rounded-lg object-contain object-center md:h-[480px]"
+            />
+          </SplideSlide>
+        ))}
+      </Splide>
+
+      {/* Thumbnails Slider */}
+      <div className="grid grid-cols-5 gap-4 md:grid-cols-9">
+        {data.map(({ imgelink }, index) => (
+          <div key={index} onClick={() => handleThumbnailClick(index)}>
+            <img
+              src={imgelink}
+              alt={`thumbnail-${index}`}
+              className={`h-20 w-32 cursor-pointer rounded-lg object-cover object-center ${
+                activeIndex === index ? "border-2 border-blue-500" : ""
+              }`}
             />
           </div>
         ))}

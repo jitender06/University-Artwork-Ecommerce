@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Charts from './Charts'
-import { Paper } from '@mui/material'
+import { Backdrop, CircularProgress, Paper } from '@mui/material'
 import './style.css'
 import Tables from './Tables/Tables'
 import axios from 'axios'
@@ -8,12 +8,19 @@ import { Avatar } from '@material-tailwind/react'
 import { NavLink } from 'react-router-dom';
 
 export default function Dashboard() {
-  const [TABLE_ROWS, setTABLE_ROWS] = useState()
+  const [TABLE_ROWS, setTABLE_ROWS] = useState();
+  const [open, setOpen] = React.useState(false);
+  
+  const handleClose = () => {
+    setOpen(false);
+  };
   const fetchProductData = async () => {
+    setOpen(true)
     try {
-      const { data } = await axios.get("https://university-artwork-ecommerce.onrender.com/api/getproducts")
+      const { data } = await axios.get("http://localhost:8000/api/getproducts")
       console.log(data, "dataproduct5656")
-      setTABLE_ROWS(data)
+      setTABLE_ROWS(data);
+      setOpen(false)
 
     } catch (error) {
       console.log(error)
@@ -26,6 +33,13 @@ export default function Dashboard() {
   console.log(TABLE_ROWS, "::TABLE_ROWS")
   return (
     <>
+        <Backdrop
+          sx={(theme) => ({ color: '#fff', zIndex: theme.zIndex.drawer + 1 })}
+          open={open}
+          onClick={handleClose}
+        >
+        <CircularProgress color="inherit" />
+      </Backdrop>
       <div className="page-container container relative mx-auto flex h-full flex-auto flex-col px-4 py-4 sm:px-6 sm:py-6 md:px-8" >
         <div className="container mx-auto h-full">
           <div className="flex max-w-full flex-col gap-4 overflow-x-hidden">
@@ -135,7 +149,7 @@ export default function Dashboard() {
                         TABLE_ROWS?.slice(0, 6).map(({ title, description, status, price, category, createdAt, updatedAt, productImage, _id }, index) => (
                           <div key={_id} className="mb-2 flex items-center justify-between py-2 dark:border-gray-600">
                             <div className="flex items-center gap-2">
-                              <Avatar src={`https://university-artwork-ecommerce.onrender.com/${productImage?.path}`} alt={title} size="sm" />
+                              <Avatar src={`http://localhost:8000/${productImage?.path}`} alt={title} size="sm" />
                               <div>
                                 <div className="heading-text font-bold">{title?.charAt(0).toUpperCase() + title?.slice(1)}</div>
                                 <div className='max-w-16 text-sm'>

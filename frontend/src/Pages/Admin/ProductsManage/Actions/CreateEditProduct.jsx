@@ -74,7 +74,7 @@ export default function CreateEditProduct({ maksad, productData, fetchProductDat
         try {
             if (maksad === 'add') {
                 // API request to add a product
-                const { data } = await axios.post('https://university-artwork-ecommerce.onrender.com/api/products', formDataToSend, {
+                const { data } = await axios.post('http://localhost:8000/api/products', formDataToSend, {
                     headers: {
                         'Content-Type': 'multipart/form-data',
                         'Authorization': `Bearer ${token}`,
@@ -108,7 +108,7 @@ export default function CreateEditProduct({ maksad, productData, fetchProductDat
                 }
             } else if (maksad === 'edit') {
                 // API request to update product
-                await axios.put(`https://university-artwork-ecommerce.onrender.com/api/product/${productData?._id}`, formDataToSend, {
+                await axios.put(`http://localhost:8000/api/product/${productData?._id}`, formDataToSend, {
                     headers: {
                         'Content-Type': 'multipart/form-data',
                         'Authorization': `Bearer ${token}`,

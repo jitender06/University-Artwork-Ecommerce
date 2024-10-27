@@ -12,6 +12,8 @@ import PersonAdd from '@mui/icons-material/PersonAdd';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 import { useNavigate } from 'react-router-dom';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+
 
 export default function UserAvatar() {
   const navigate = useNavigate();
@@ -27,7 +29,7 @@ export default function UserAvatar() {
   const token = data?.refreshToken
   const handleLogout = async (token) => {
     try {
-      const response = await fetch('https://university-artwork-ecommerce.onrender.com/auth/logout', {
+      const response = await fetch('http://localhost:8000/auth/logout', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -110,6 +112,7 @@ export default function UserAvatar() {
         <MenuItem onClick={handleClose}>
           <Avatar /> {data?.user?.name ? data.user.name.charAt(0).toUpperCase() + data.user.name.slice(1) : ''} <br /> {data?.user?.email}
         </MenuItem>
+
         <Divider />
         <MenuItem onClick={() => handleLogout(token)}>
           <ListItemIcon>

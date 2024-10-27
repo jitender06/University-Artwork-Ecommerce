@@ -20,7 +20,7 @@ const app = express();
 
 connectDB();
 const corsOptions = {
-    origin: 'https://allahabad-university.netlify.app', // Replace with your frontend URL
+    origin: 'http://localhost:5173', // Replace with your frontend URL  https://allahabad-university.netlify.app
     methods: ['GET', 'POST', 'PUT', 'DELETE'], // Adjust methods as needed
     credentials: true, // If you need to allow cookies
 };
@@ -41,5 +41,5 @@ app.use('/auth', authRoutes);
 
 
 app.listen(8000, () => {
-    console.log(`Server Run on https://university-artwork-ecommerce.onrender.com/`);
+    console.log(`Server Run on http://localhost:8000`);
 })

@@ -14,6 +14,9 @@ import NightlightRoundIcon from '@mui/icons-material/NightlightRound';
 import './styleHeader.css'
 import Cart from "../../../Pages/Public/ArtworkStore/components/cart";
 import UserAvatar from "./UserAvatar";
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import Wishlist from "./wishlist";
+
 
 const navListMenuItems = [
   {
@@ -253,6 +256,8 @@ export default function Header() {
           <div className="hidden gap-2 lg:flex items-center">
             {
               user && user?.role ? <>
+              {/* <FavoriteIcon sx={{color:"red"}} /> */}
+                <Wishlist/>
                 <Cart />
                 <UserAvatar />
               </>

@@ -43,14 +43,18 @@ export default function ArtistsShow() {
                                 srcSet={artist.imageSrc}
                                 src={artist.imageSrc}
                                 alt={artist.name}
-                                className="m-0 mb-6 w-full object-cover md:h-56 rounded-full"
+                                className="m-0 mb-6 w-full object-cover md:h-32 rounded-full"
                             />
                             <span className="dark:text-white text-xs font-semibold leading-4 text-gray-900 lg:text-base lg:leading-6">
                                 {artist.name}
                             </span>
-                            <span className="text-xs leading-4 text-gray-500 lg:text-base lg:leading-6 dark:text-white">
+                            {/* <span className="text-xs leading-4 text-gray-500 lg:text-base lg:leading-6 dark:text-white">
+                                {artist.position}
+                            </span> */}
+                            <span className="text-xs leading-4 text-gray-500 lg:text-base lg:leading-6 dark:text-white max-w-full break-words">
                                 {artist.position}
                             </span>
+
                             <span className="text-xs leading-4 text-gray-500 lg:text-base lg:leading-6 dark:text-white">
                                 {artist.Best}
                             </span>

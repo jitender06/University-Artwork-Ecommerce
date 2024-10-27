@@ -14,7 +14,7 @@ export function MembersTable() {
   let token = data?.accessToken;
   const fetchProductData = async () => {
     try {
-      const { data } = await axios.get('https://university-artwork-ecommerce.onrender.com/user/getUser', {
+      const { data } = await axios.get('http://localhost:8000/user/getUser', {
         headers: {
           'Authorization': `Bearer ${token}`,
         }

@@ -35,7 +35,7 @@ export default function Login() {
     };
 
     const handleGoogleLogin = async () => {
-        window.location.href = 'https://university-artwork-ecommerce.onrender.com/auth/google';
+        window.location.href = 'http://localhost:8000/auth/google';
     };
 
     return (
