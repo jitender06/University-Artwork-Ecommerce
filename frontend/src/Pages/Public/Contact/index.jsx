@@ -42,7 +42,7 @@ export function Contact() {
           <form action="#" method="POST" className="mx-auto max-w-xl">
             <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2 ">
               <div>
-                <label htmlFor="firstname" className="text-start block text-sm font-semibold leading-6 text-gray-900">
+                <label htmlFor="firstname" className="text-start block text-sm font-semibold leading-6 text-gray-900 dark:text-white">
                   First name
                 </label>
                 <div className="mt-2.5">
@@ -58,7 +58,7 @@ export function Contact() {
                 </div>
               </div>
               <div>
-                <label htmlFor="lastname" className="text-start block text-sm font-semibold leading-6 text-gray-900">
+                <label htmlFor="lastname" className="text-start block text-sm font-semibold leading-6 text-gray-900 dark:text-white">
                   Last name
                 </label>
                 <div className="mt-2.5">
@@ -74,7 +74,7 @@ export function Contact() {
                 </div>
               </div>
               <div className="sm:col-span-2">
-                <label htmlFor="email" className="text-start block text-sm font-semibold leading-6 text-gray-900">
+                <label htmlFor="email" className="text-start block text-sm font-semibold leading-6 text-gray-900 dark:text-white">
                   Email
                 </label>
                 <div className="mt-2.5">
@@ -90,7 +90,7 @@ export function Contact() {
                 </div>
               </div>
               <div className="sm:col-span-2">
-                <label htmlFor="message" className="text-start block text-sm font-semibold leading-6 text-gray-900">
+                <label htmlFor="message" className="text-start block text-sm font-semibold leading-6 text-gray-900 dark:text-white">
                   Message
                 </label>
                 <div className="mt-2.5">

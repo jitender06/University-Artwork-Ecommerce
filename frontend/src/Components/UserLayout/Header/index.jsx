@@ -60,7 +60,7 @@ function NavListMenu() {
           <div>
             <Typography
               variant="h6"
-              className="flex items-center text-sm font-bold text-[#222] dark:text-white"
+              className="flex items-center text-sm font-bold text-[#222] dark:text-[#222]"
             >
               {title}
             </Typography>
@@ -226,9 +226,14 @@ export default function Header() {
       </div>
       <div className="flex justify-center items-center flex-col">
         <img className="mt-5 mb-5 max-w-[289px] md:max-w-[600px]" src="https://www.allduniv.ac.in/assets/frontend/img/home/au_logo.png" alt="logo" id="main_logo" />
-        <p className="text-3xl mb-4 font-extrabold bg-gradient-to-r from-[#ff80b5] to-[#9089fc] bg-clip-text text-transparent">
+        {/* <p className="text-3xl mb-4 font-extrabold bg-gradient-to-r from-[#ff80b5] to-[#9089fc] bg-clip-text text-transparent">
+          Artwork And Gallery
+        </p> */}
+        <p className="text-2xl mb-4 font-bold bg-gradient-to-r from-[#ff80b5] to-[#9089fc] bg-clip-text text-transparent" style={{ fontFamily: 'Cinzel, serif' }}>
           Artwork And Gallery
         </p>
+
+
       </div>
       <Navbar className="sticky top-0 max-w-full px-4 py-2 bg-[#f3f3f3cc] dark:bg-[#222] z-50 dark:border-t-white dark:border-t-2 dark:border-b-[#222] dark:border-l-[#222] dark:border-r-[#222]" style={{ borderRadius: "unset" }}>
         <div className="flex items-center justify-between text-blue-gray-900 dark:text-white max-w-[1700px] mx-auto">

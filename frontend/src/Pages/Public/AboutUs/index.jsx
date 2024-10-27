@@ -12,6 +12,7 @@ import Img1 from '../../../assets/Carousel/img1.jpg'
 import AmritaPandey from "../../../assets/Artists/AmritaPandey .jpeg"
 import NewArtist from "../../../assets/Videos/newartist.PNG"
 import ShreyaBhardwaj from "../../../assets/Artists/ShreyaBhardwaj.jpg"
+import ANNUSHRIMANDALorig from "../../../assets/Artists/ANNUSHRIMANDALorig.jpg"
 
 const artistsData = [
   {
@@ -27,16 +28,22 @@ const artistsData = [
     imageSrc: Aakritiverma,
   },
   {
+    name: "Yuvraj sharma",
+    position: "yuvraj1992002@gmail.com",
+    Best: "Water Colour",
+    imageSrc: YuvrajSharma,
+  },
+  {
     name: "Sheetal Chhaya",
     position: "mynameissheetalchhaya@gmail.com",
     Best: "Landscape Painting",
     imageSrc: Sheetalchaya,
   },
   {
-    name: "Yuvraj sharma",
-    position: "yuvraj1992002@gmail.com",
-    Best: "Water Colour",
-    imageSrc: YuvrajSharma,
+    name: "Annushri Mandal",
+    position: "annushrimandal@gmail.com",
+    Best: "Oil Painting, Water Colour, Sketching",
+    imageSrc: ANNUSHRIMANDALorig,
   },
   {
     name: "Preraj",
@@ -45,7 +52,7 @@ const artistsData = [
     imageSrc: ANNUSHRIMANDAL,
   },
   {
-    name: "Yug Sharma",
+    name: "Yug Singh",
     position: "yugsingh.era@gmail.com",
     Best: "Watercolour, Painting",
     imageSrc: Yugsingh
@@ -61,12 +68,6 @@ const artistsData = [
     position: "sunidhikri2389@gmail.com",
     Best: "Clay modelling, wax sculpting, welding",
     imageSrc: Sunidhi
-  },
-  {
-    name: "Anushka Vishwakarma",
-    position: "anushkavishwakarma269@gmail.com",
-    Best: "Pencil Portrait, wall painting, Paintings",
-    imageSrc: AnushkaVishwakarma,
   },
   {
     name: "Shagun Mishra",
@@ -85,7 +86,13 @@ const artistsData = [
     position: "amritapandey60@gmail.com",
     Best: "Digital Art",
     imageSrc: AmritaPandey
-},
+  },
+  {
+    name: "Anushka Vishwakarma",
+    position: "anushkavishwakarma269@gmail.com",
+    Best: "Pencil Portrait, wall painting, Paintings",
+    imageSrc: AnushkaVishwakarma,
+  },
 ];
 
 export default function AboutUs() {
@@ -140,7 +147,7 @@ export default function AboutUs() {
         </div>
       </section>
 
-      <div className="mx-auto w-full max-w-[328px] py-10 sm:max-w-[480px] md:max-w-[624px] md:pb-20 lg:max-w-[912px] lg:pb-32">
+      {/* <div className="mx-auto w-full max-w-[328px] py-10 sm:max-w-[480px] md:max-w-[624px] md:pb-20 lg:max-w-[912px] lg:pb-32">
         <h4 className="text-center text-sm leading-6 text-gray-800 md:text-2xl md:leading-8 dark:text-white" style={{ margin: 0 }}>Our Team</h4>
         <div className="mt-6 grid grid-cols-[repeat(2,144px)] gap-6 align-top sm:grid-cols-[repeat(3,144px)] md:mt-12 md:grid-cols-[repeat(3,176px)] lg:mt-16 lg:grid-cols-[repeat(4,192px)] lg:gap-12">
           {
@@ -166,7 +173,7 @@ export default function AboutUs() {
           }
 
         </div>
-      </div>
+      </div> */}
       
       <div className="mx-auto w-full max-w-[328px] py-8 sm:max-w-[480px] md:max-w-[624px] md:pb-10 lg:max-w-[912px] lg:pb-16 xl:max-w-[1016px]">
         <h4 className="mb-8 text-center text-sm leading-6 text-gray-800 md:text-2xl md:leading-8 lg:mb-16 dark:text-white">We are Here</h4>

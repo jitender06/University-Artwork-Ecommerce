@@ -12,6 +12,12 @@ import Sunidhi from "../../../../assets/Artists/sunidhi.jpg"
 import NewArtist from "../../../../assets/Videos/newartist.PNG"
 import ShreyaBhardwaj from "../../../../assets/Artists/ShreyaBhardwaj.jpg"
 import AmritaPandey from "../../../../assets/Artists/AmritaPandey .jpeg"
+import ANNUSHRIMANDALorig from "../../../../assets/Artists/ANNUSHRIMANDALorig.jpg"
+import AnamikaRao from "../../../../assets/Artists/AnamikaRao.jpg"
+
+import BhoomiSingh from "../../../../assets/Artists/BhoomiSingh.jpg"
+import Shivangi from "../../../../assets/Artists/Shivangi.jpg"
+
 
 
 export default function ArtistsShow() {
@@ -88,12 +94,12 @@ const artistsData = [
         Best: "Water Colour",
         imageSrc: YuvrajSharma,
     },
-    // {
-    //     name: "Annushri Mandal",
-    //     position: "annushrimandal@gmail.com",
-    //     Best: "Oil Painting, Water Colour, Sketching",
-    //     imageSrc: ANNUSHRIMANDAL,
-    // },
+    {
+        name: "Annushri Mandal",
+        position: "annushrimandal@gmail.com",
+        Best: "Oil Painting, Water Colour, Sketching",
+        imageSrc: ANNUSHRIMANDALorig,
+    },
     {
         name: "Preraj",
         position: "preraj9569singh@gmail.com",
@@ -101,7 +107,7 @@ const artistsData = [
         imageSrc: ANNUSHRIMANDAL,
     },
     {
-        name: "Yug Sharma",
+        name: "Yug Singh",
         position: "yugsingh.era@gmail.com",
         Best: "Watercolour, Painting",
         imageSrc: Yugsingh
@@ -135,6 +141,24 @@ const artistsData = [
         position: "amritapandey60@gmail.com",
         Best: "Digital Art",
         imageSrc: AmritaPandey
+    },
+    {
+        name: "Anamika Rao",
+        position: "anamikarsrao04@gmail.com",
+        Best: "Oil Painting, Portrait",
+        imageSrc: AnamikaRao
+    },
+    {
+        name: "Bhoomi Singh",
+        position: "singhbhoomi779@gmail.com",
+        Best: "pencil colour, poster colour, Portrait",
+        imageSrc: BhoomiSingh
+    },
+    {
+        name: "Shivangi Verma",
+        position: "vermashivangi6394@gmail.com",
+        Best: "Painting",
+        imageSrc: Shivangi
     },
 ];
 const duplicatedSlides = [...artistsData, ...artistsData];

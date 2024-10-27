@@ -162,7 +162,7 @@ export default function ProductDetail({ Finalproduct, cate }) {
                                             </div>
                                         </section>
 
-                                        <section className='mt-4'>
+                                        {/* <section className='mt-4'>
                                             <FormControl sx={{ minWidth: 120 }} size="small">
                                                 <InputLabel id="demo-simple-select-label">Qty</InputLabel>
                                                 <Select
@@ -179,7 +179,7 @@ export default function ProductDetail({ Finalproduct, cate }) {
                                                     <MenuItem value={5}>5</MenuItem>
                                                 </Select>
                                             </FormControl>
-                                        </section>
+                                        </section> */}
 
                                         <section aria-labelledby="options-heading" className="mt-10">
                                             <h3 id="options-heading" className="sr-only">

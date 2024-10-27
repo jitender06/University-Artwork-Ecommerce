@@ -18,8 +18,8 @@ export default function HeroBody() {
                 <p className="text-sm md:max-w-xl md:mx-auto lg:mx-0 lg:max-w-full md:text-center lg:text-left dark:text-gray-300">
                     At University of Allahabad we believe in the power of art to inspire, challenge, and transform the way we see the world. Our university is a dynamic space where creativity thrives, and innovation is at the forefront of everything we do.
                 </p>
-                <span className='font-bold'>Our Purpose & Passion</span>
-                <div className='flex flex-col items-start gap-5'>
+                <span className='font-bold dark:text-white'>Our Purpose & Passion</span>
+                <div className='flex flex-col items-start gap-5 dark:text-white'>
                     <span className='flex items-center gap-3'>
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#26D97F" stroke-width="null" class="my-path"></path>
